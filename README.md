@@ -1,0 +1,2 @@
+# EasySpeechCorpusCreator
+GUIで比較的かんたんに音声コーパスを作成できるツール
