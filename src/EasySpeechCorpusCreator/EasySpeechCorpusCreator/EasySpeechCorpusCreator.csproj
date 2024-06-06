@@ -14,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	<Folder Include="Consts\" />
     <Folder Include="Models\" />
-	<Folder Include="Views\" />
   </ItemGroup>
 
 </Project>

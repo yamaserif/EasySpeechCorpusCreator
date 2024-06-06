@@ -5,10 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:local="clr-namespace:EasySpeechCorpusCreator.Views"
+        xmlns:v="clr-namespace:EasySpeechCorpusCreator.Views"
+        xmlns:vm="clr-namespace:EasySpeechCorpusCreator.ViewModels"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title.Value}" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="{Binding Text.Value}"/>
+        <TabControl>
+            <!-- 管理画面 -->
+            <TabItem Header="{Binding ManagerName.Value}">
+                <TabItem.ContentTemplate>
+                    <DataTemplate DataType="{x:Type vm:ManagerViewModel}">
+                        <v:ManagerView />
+                    </DataTemplate>
+                </TabItem.ContentTemplate>
+            </TabItem>
+
+            <!-- 原稿インポート画面 -->
+            <TabItem Header="{Binding ImportName.Value}">
+                <TabItem.ContentTemplate>
+                    <DataTemplate DataType="{x:Type vm:ImportViewModel}">
+                        <v:ImportView />
+                    </DataTemplate>
+                </TabItem.ContentTemplate>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
