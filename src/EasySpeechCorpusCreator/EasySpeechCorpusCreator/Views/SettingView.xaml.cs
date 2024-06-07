@@ -1,17 +1,16 @@
-﻿using System;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace EasySpeechCorpusCreator.Views
 {
     /// <summary>
-    /// Interaction logic for ManagerView.xaml
+    /// Interaction logic for SettingView.xaml
     /// </summary>
-    public partial class ManagerView : UserControl
+    public partial class SettingView : UserControl
     {
-        public ManagerView()
+        public SettingView()
         {
             InitializeComponent();
         }
-
     }
 }

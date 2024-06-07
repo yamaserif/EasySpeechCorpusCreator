@@ -5,13 +5,13 @@ using Reactive.Bindings.Extensions;
 
 namespace EasySpeechCorpusCreator.ViewModels
 {
-    public class ImportViewModel : ViewModelBase
+    public class SettingViewModel : ViewModelBase
     {
         public ReactiveProperty<string> Text { get; }
 
-        public ImportViewModel()
+        public SettingViewModel()
         {
-            this.Text = new ReactiveProperty<string>("ImportViewModel").AddTo(this.Disposable);
+            this.Text = new ReactiveProperty<string>("SettingViewModel").AddTo(this.Disposable);
         }
     }
 }

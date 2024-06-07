@@ -8,6 +8,22 @@
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <TextBlock Text="{Binding Text.Value}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Text.Value}"/>
+        <ListView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding CorpusItems}" SelectedItem="{Binding SelectItem.Value}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.No}" DisplayMemberBinding="{Binding Path=No}"/>
+                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Name}" DisplayMemberBinding="{Binding Path=Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

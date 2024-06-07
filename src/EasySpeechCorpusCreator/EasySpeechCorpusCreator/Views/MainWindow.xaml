@@ -9,7 +9,9 @@
         xmlns:vm="clr-namespace:EasySpeechCorpusCreator.ViewModels"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title.Value}" Height="450" Width="800">
+        Title="{Binding Title.Value}" Height="450" Width="800"
+        Closing="Window_Closing"
+        Closed="Window_Closed">
     <Grid>
         <TabControl>
             <!-- 管理画面 -->
@@ -26,6 +28,15 @@
                 <TabItem.ContentTemplate>
                     <DataTemplate DataType="{x:Type vm:ImportViewModel}">
                         <v:ImportView />
+                    </DataTemplate>
+                </TabItem.ContentTemplate>
+            </TabItem>
+            
+            <!-- 設定画面 -->
+            <TabItem Header="{Binding SettingName.Value}">
+                <TabItem.ContentTemplate>
+                    <DataTemplate DataType="{x:Type vm:SettingViewModel}">
+                        <v:SettingView />
                     </DataTemplate>
                 </TabItem.ContentTemplate>
             </TabItem>
