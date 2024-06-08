@@ -30,3 +30,12 @@
 ---
 
 *（あとこれは全く強制でもない取り留めのない独り言ですが、一言どんな感じで活用したか教えていただければ、作者がめっちゃ喜びます。ついでにビールの1杯でも奢ってくれればもっと喜びます。）*
+
+## ダウンロード
+1. 以下zipファイルをダウンロードして、展開してください。
+2. 展開後、「簡単コーパスくん」を実行してください。（インストールは不要です）
+
+| 環境 | リンク |
+| ---- | ---- |
+| 64bit Windows | [EasySpeechCorpusCreator_win-x64.zip](https://github.com/yamaserif/EasySpeechCorpusCreator/tree/main/apps/EasySpeechCorpusCreator_win-x64.zip) |
+| 86bit Windows | [EasySpeechCorpusCreator_win-x86.zip](https://github.com/yamaserif/EasySpeechCorpusCreator/tree/main/apps/EasySpeechCorpusCreator_win-x86.zip) |
