@@ -23,7 +23,7 @@ namespace EasySpeechCorpusCreator.Views
         public void Window_Closing(object sender, CancelEventArgs e)
         {
             // ソフト終了 確認ダイアログ
-            var result = MessageBox.Show(SystemConst.CLOSE_MESSAGE, SystemConst.CLOSE_CAPTION, MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var result = MessageBox.Show(DialogConst.CLOSE_MESSAGE, DialogConst.CLOSE_CAPTION, MessageBoxButton.YesNo, MessageBoxImage.Information);
             if (MessageBoxResult.Yes != result)
             {
                 e.Cancel = true;

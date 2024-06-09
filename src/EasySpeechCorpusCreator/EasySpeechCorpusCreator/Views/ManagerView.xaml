@@ -22,6 +22,8 @@
                 <GridView>
                     <GridViewColumn Header="{Binding CorpusItemHeader.Value.No}" DisplayMemberBinding="{Binding Path=No}"/>
                     <GridViewColumn Header="{Binding CorpusItemHeader.Value.Name}" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Sentence}" DisplayMemberBinding="{Binding Path=Sentence}"/>
+                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Kana}" DisplayMemberBinding="{Binding Path=Kana}"/>
                 </GridView>
             </ListView.View>
         </ListView>

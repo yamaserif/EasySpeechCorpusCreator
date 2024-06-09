@@ -17,8 +17,6 @@ namespace EasySpeechCorpusCreator.ViewModels
 {
     public class SettingViewModel : ViewModelBase
     {
-        public ReactiveProperty<Settings> Settings { get; }
-
         // 説明
         public ReactiveProperty<string> ExplainProjectPass { get; set; }
         public ReactiveProperty<string> ExplainFormat { get; set; }
@@ -40,14 +38,11 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         public SettingViewModel()
         {
-            var settings = Application.Current.Properties["Settings"] as Settings ?? new Settings();
-            this.Settings = new ReactiveProperty<Settings>(settings).AddTo(this.Disposable);
-
             this.ExplainProjectPass = new ReactiveProperty<string>(SettingsConst.EXPLAIN_PROJECT_PASS).AddTo(this.Disposable);
             this.ExplainFormat = new ReactiveProperty<string>(SettingsConst.EXPLAIN_FORMAT).AddTo(this.Disposable);
 
-            this.ProjectPass = new ReactiveProperty<string>(settings.ProjectPass).AddTo(this.Disposable);
-            this.Format = new ReactiveProperty<Format>(settings.Format).AddTo(this.Disposable);
+            this.ProjectPass = new ReactiveProperty<string>(this.Settings.ProjectPass).AddTo(this.Disposable);
+            this.Format = new ReactiveProperty<Format>(this.Settings.Format).AddTo(this.Disposable);
 
             this.SettingProjectPassText = new ReactiveProperty<string>(SystemConst.SETTING_PATH).AddTo(this.Disposable);
             this.FormatList = new ReactiveCollection<Format>()
@@ -55,8 +50,8 @@ namespace EasySpeechCorpusCreator.ViewModels
                 SettingsConst.Format.CSV,
                 SettingsConst.Format.JSON
             }.AddTo(this.Disposable);
-            this.SaveSettingText = new ReactiveProperty<string>(SystemConst.SAVE_SETTING).AddTo(this.Disposable);
-            this.ResetSettingText = new ReactiveProperty<string>(SystemConst.RESET_SETTING).AddTo(this.Disposable);
+            this.SaveSettingText = new ReactiveProperty<string>(SystemConst.SAVE).AddTo(this.Disposable);
+            this.ResetSettingText = new ReactiveProperty<string>(SystemConst.RESET).AddTo(this.Disposable);
 
             this.SettingProjectPassCommand = new DelegateCommand(this.SettingProjectPass);
             this.SaveSettingCommand = new DelegateCommand(this.SaveSetting);
@@ -65,36 +60,34 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         private void SettingProjectPass()
         {
-            using (var cofd = new CommonOpenFileDialog()
+            using (var fileDialog = new CommonOpenFileDialog()
             {
                 Title = DialogConst.SELECT_DIRECTORY,
                 InitialDirectory = this.ProjectPass.Value,
-                IsFolderPicker = true,
+                IsFolderPicker = true
             })
             {
-                if (cofd.ShowDialog() != CommonFileDialogResult.Ok)
+                if (fileDialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
-                    return;
+                    this.ProjectPass.Value = fileDialog?.FileName ?? string.Empty;
                 }
-
-                this.ProjectPass.Value = cofd?.FileName ?? string.Empty;
             }
         }
 
         private void SaveSetting()
         {
-            this.Settings.Value.ProjectPass = this.ProjectPass.Value;
-            this.Settings.Value.Format = this.Format.Value;
+            this.Settings.ProjectPass = this.ProjectPass.Value;
+            this.Settings.Format = this.Format.Value;
 
             var path = SettingsConst.SETTINGS_PATH;
             var enc = Encoding.GetEncoding(SettingsConst.SETTINGS_FORMAT);
             using (var writer = new StreamWriter(path, false, enc))
             {
-                writer.WriteLine(JsonUtil.ToJson(this.Settings.Value));
+                writer.WriteLine(JsonUtil.ToJson(this.Settings));
             }
 
             // 保存完了 ダイアログ
-            MessageBox.Show(SystemConst.SAVE_MESSAGE, SystemConst.SAVE_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(DialogConst.SAVE_MESSAGE, DialogConst.SAVE_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void ResetSetting()
@@ -105,7 +98,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.Format.Value = defaultSetting.Format;
 
             // リセット完了 ダイアログ
-            MessageBox.Show(SystemConst.RESET_MESSAGE, SystemConst.RESET_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(DialogConst.RESET_MESSAGE, DialogConst.RESET_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

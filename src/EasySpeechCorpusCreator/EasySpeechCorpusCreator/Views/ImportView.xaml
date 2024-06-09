@@ -8,6 +8,54 @@
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <TextBlock Text="{Binding Text.Value}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="55"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" Text="{Binding ExplainImportPass.Value}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Text="{Binding ImportPass.Value}"/>
+        <Button Grid.Column="6" Grid.Row="2" Command="{Binding SettingImportPassCommand}" Content="{Binding SettingImportPassText.Value}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="6" Text="{Binding ExplainImportPeek.Value}"/>
+        <Border Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="1">
+            <TextBlock Text="{Binding ImportPeek.Value}" Margin="2"/>
+        </Border>
+
+        <TextBlock Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="6" Text="{Binding ExplainImportFormat.Value}"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding ImportVariableChar.Value}"/>
+        <TextBox Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="2" Text="{Binding ImportFormat.Value}"/>
+        <Button Grid.Column="6" Grid.Row="8" Command="{Binding FormatTestCommand}" Content="{Binding ImportTestText.Value}"/>
+
+        <Button Grid.Column="1" Grid.Row="10" Command="{Binding ImportCommand}" Content="{Binding ImportText.Value}"/>
+        <Button Grid.Column="3" Grid.Row="10" Command="{Binding ResetImportCommand}" Content="{Binding ResetImportText.Value}"/>
     </Grid>
 </UserControl>

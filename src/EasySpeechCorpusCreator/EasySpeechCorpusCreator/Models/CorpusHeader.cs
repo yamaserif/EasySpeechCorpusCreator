@@ -14,12 +14,20 @@ namespace EasySpeechCorpusCreator.Models
 
         public string Name { get; set; }
 
+        public string Sentence { get; set; }
+
+        public string Kana { get; set; }
+
         public CorpusHeader(
-            string no = CorpusItemsHeaderConst.NO,
-            string name = CorpusItemsHeaderConst.NAME)
+            string no = CorpusConst.NO,
+            string name = CorpusConst.NAME,
+            string sentence = CorpusConst.SENTENCE,
+            string kana = CorpusConst.KANA)
         {
             this.No = no;
             this.Name = name;
+            this.Sentence = sentence;
+            this.Kana = kana;
         }
     }
 }
