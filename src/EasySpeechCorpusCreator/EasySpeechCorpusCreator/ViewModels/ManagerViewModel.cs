@@ -23,7 +23,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.Text = new ReactiveProperty<string>().AddTo(this.Disposable);
             this.SelectItem = new ReactiveProperty<CorpusItem?>().AddTo(this.Disposable);
             this.CorpusItemHeader = new ReactiveProperty<CorpusHeader>(new CorpusHeader()).AddTo(this.Disposable);
-            this.CorpusItems = new ReactiveCollection<CorpusItem>
+            this.CorpusItems = new ReactiveCollection<CorpusItem>()
             {
                 new CorpusItem(0, "CorpusItem1"),
                 new CorpusItem(1, "CorpusItem2")

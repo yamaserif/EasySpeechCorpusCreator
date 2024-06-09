@@ -1,4 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO;
+using System.Text;
+using System.Windows;
+using System.Windows.Shapes;
+using EasySpeechCorpusCreator.Business;
+using EasySpeechCorpusCreator.Consts;
+using EasySpeechCorpusCreator.Models;
 using EasySpeechCorpusCreator.ViewModels;
 using EasySpeechCorpusCreator.Views;
 using Prism.Ioc;
@@ -14,6 +21,31 @@ namespace EasySpeechCorpusCreator
     {
         protected override Window CreateShell()
         {
+            var path = SettingsConst.SETTINGS_PATH;
+            var enc = Encoding.GetEncoding(SettingsConst.SETTINGS_FORMAT);
+            var currentDir = AppDomain.CurrentDomain.BaseDirectory;
+            Directory.SetCurrentDirectory(currentDir);
+
+            // 設定ファイルがない場合は作成する
+            if (!File.Exists(path))
+            {
+                using (var writer = new StreamWriter(path, false, enc))
+                {
+                    writer.WriteLine(JsonUtil.ToJson(new Settings()));
+                }
+            }
+
+            // 設定値 読み込み
+            var settingsStr = File.ReadAllText(path, enc);
+            var setting = JsonUtil.ToSettings(settingsStr);
+            Application.Current.Properties["Settings"] = setting;
+
+            // プロジェクトファイルがない場合は作成する
+            if (setting != null && !File.Exists(setting.ProjectPass))
+            {
+                Directory.CreateDirectory(setting.ProjectPass);
+            }
+
             return Container.Resolve<MainWindow>();
         }
 
