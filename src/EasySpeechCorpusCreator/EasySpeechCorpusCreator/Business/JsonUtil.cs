@@ -8,6 +8,12 @@ namespace EasySpeechCorpusCreator.Business
 {
     public static class JsonUtil
     {
+        public static string ToJson(CorpusItem obj)
+        {
+            var json = JsonSerializer.Serialize(obj, JsonUtil.GetOption());
+            return json;
+        }
+
         public static string ToJson(Settings obj)
         {
             var json = JsonSerializer.Serialize(obj, JsonUtil.GetOption());

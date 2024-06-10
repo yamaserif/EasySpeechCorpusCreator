@@ -22,12 +22,14 @@ namespace EasySpeechCorpusCreator.ViewModels
         public ReactiveProperty<string> ExplainImportPass { get; set; }
         public ReactiveProperty<string> ExplainImportPeek { get; set; }
         public ReactiveProperty<string> ExplainImportFormat { get; set; }
+        public ReactiveProperty<string> ExplainImportName { get; set; }
 
         // 中身
         public ReactiveProperty<string> ImportPass { get; set; }
         public ReactiveProperty<string> ImportPeek { get; set; }
         public ReactiveProperty<string> ImportVariableChar { get; set; }
         public ReactiveProperty<string> ImportFormat { get; set; }
+        public ReactiveProperty<string> ImportName { get; set; }
 
         // 要素設定値
         public ReactiveProperty<string> SettingImportPassText { get; set; }
@@ -46,11 +48,13 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.ExplainImportPass = new ReactiveProperty<string>(ImportConst.EXPLAIN_IMPORT_PASS).AddTo(this.Disposable);
             this.ExplainImportPeek = new ReactiveProperty<string>(ImportConst.EXPLAIN_IMPORT_PEEK).AddTo(this.Disposable);
             this.ExplainImportFormat = new ReactiveProperty<string>(ImportConst.EXPLAIN_IMPORT_FORMAT).AddTo(this.Disposable);
+            this.ExplainImportName = new ReactiveProperty<string>(ImportConst.EXPLAIN_IMPORT_NAME).AddTo(this.Disposable);
 
             this.ImportPass = new ReactiveProperty<string>().AddTo(this.Disposable);
             this.ImportPeek = new ReactiveProperty<string>().AddTo(this.Disposable);
             this.ImportVariableChar = new ReactiveProperty<string>(ImportConst.DEFAULT_IMPORT_VARIABLE_CHAR).AddTo(this.Disposable);
             this.ImportFormat = new ReactiveProperty<string>(ImportConst.DEFAULT_IMPORT_FORMAT).AddTo(this.Disposable);
+            this.ImportName = new ReactiveProperty<string>(ImportConst.DEFAULT_IMPORT_NAME).AddTo(this.Disposable);
 
             this.SettingImportPassText = new ReactiveProperty<string>(SystemConst.SETTING_PATH).AddTo(this.Disposable);
             this.ImportTestText = new ReactiveProperty<string>(SystemConst.TEST).AddTo(this.Disposable);
@@ -65,8 +69,6 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         private void SettingImportPass()
         {
-            this.ImportPeek.Value = string.Empty;
-
             using (var fileDialog = new CommonOpenFileDialog()
             {
                 Title = DialogConst.SELECT_FILE,
@@ -76,6 +78,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             {
                 if (fileDialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
+                    this.ImportPeek.Value = string.Empty;
                     this.ImportPass.Value = fileDialog?.FileName ?? string.Empty;
 
                     if (File.Exists(this.ImportPass.Value))
@@ -108,7 +111,6 @@ namespace EasySpeechCorpusCreator.ViewModels
                     {
                         var corpusItem = CorpusImportUtil.ToCorpusItem(0, line, this.ImportVariableChar.Value, this.ImportFormat.Value);
 
-                        testResult += CorpusConst.NO + ": " + corpusItem.No + '\n';
                         testResult += CorpusConst.NAME + ": " + corpusItem.Name + '\n';
                         testResult += CorpusConst.SENTENCE + ": " + corpusItem.Sentence + '\n';
                         testResult += CorpusConst.KANA + ": " + corpusItem.Kana + '\n';
@@ -127,9 +129,70 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         private void Import()
         {
-            // TODO:実装
-            // 保存完了 ダイアログ
-            MessageBox.Show(DialogConst.SAVE_MESSAGE, DialogConst.SAVE_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);
+            var importPath = this.ImportPass.Value;
+            var projectPath = System.IO.Path.Combine(this.Settings.ProjectPass, this.ImportName.Value);
+            var projectFilePath = System.IO.Path.Combine(projectPath, "aaa.json");
+            var enc = Encoding.GetEncoding(CorpusConst.CORPUS_FORMAT);
+
+            // ディレクトリがない場合は作成する
+            if (!Directory.Exists(projectPath))
+            {
+                Directory.CreateDirectory(projectPath);
+            }
+
+            // インポート処理
+            if (File.Exists(importPath))
+            {
+                // インポート済みの場合
+                if (File.Exists(projectFilePath))
+                {
+                    // ファイル上書き 確認ダイアログ
+                    var result = MessageBox.Show(DialogConst.OVERWRITE_MESSAGE, DialogConst.OVERWRITE_CAPTION, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (MessageBoxResult.Yes == result)
+                    {
+                        // 上書き保存する場合はファイルを一旦削除
+                        File.Delete(projectFilePath);
+                    }
+                    else
+                    {
+                        // 上書き保存しない場合はインポート処理終了
+                        return;
+                    }
+                }
+
+                var charset = CharsetDetector.DetectFromFile(importPath);
+                using (var reader = new StreamReader(importPath, charset.Detected.Encoding))
+                using (var writer = new StreamWriter(projectFilePath, true, enc))
+                {
+                    var importResult = DialogConst.IMPORT_MESSAGE + projectPath;
+
+                    string? line;
+
+                    writer.Write('[');
+                    for (var i = 1; (line = reader.ReadLine()) != null; i++)
+                    {
+                        var corpusItem = CorpusImportUtil.ToCorpusItem(i, line, this.ImportVariableChar.Value, this.ImportFormat.Value);
+                        var setStr = JsonUtil.ToJson(new CorpusItem(corpusItem.No, corpusItem.Name, corpusItem.Sentence, corpusItem.Kana));
+
+                        writer.Write(setStr);
+                        if (-1 < reader.Peek())
+                        {
+                            writer.WriteLine(',');
+                        }
+                    }
+                    writer.Write(']');
+
+                    this.CurrentProject = this.ImportName.Value;
+
+                    // インポート結果 ダイアログ
+                    MessageBox.Show(importResult, DialogConst.IMPORT_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                // ファイル読み込み不可 ダイアログ
+                MessageBox.Show(DialogConst.CANT_READ_FILE_MESSAGE, DialogConst.CANT_READ_FILE_CAPTION, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ResetImport()

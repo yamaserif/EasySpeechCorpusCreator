@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Shapes;
@@ -21,6 +22,8 @@ namespace EasySpeechCorpusCreator
     {
         protected override Window CreateShell()
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
             var path = SettingsConst.SETTINGS_PATH;
             var enc = Encoding.GetEncoding(SettingsConst.SETTINGS_FORMAT);
             var currentDir = AppDomain.CurrentDomain.BaseDirectory;
@@ -38,12 +41,23 @@ namespace EasySpeechCorpusCreator
             // 設定値 読み込み
             var settingsStr = File.ReadAllText(path, enc);
             var setting = JsonUtil.ToSettings(settingsStr);
-            Application.Current.Properties["Settings"] = setting;
+            Application.Current.Properties[AppPropertiesConst.SETTINGS] = setting;
 
             // プロジェクトファイルがない場合は作成する
             if (setting != null && !File.Exists(setting.ProjectPass))
             {
                 Directory.CreateDirectory(setting.ProjectPass);
+            }
+
+            // 作業プロジェクト 読み込み
+            if (Directory.Exists(setting?.ProjectPass))
+            {
+                var directory = new DirectoryInfo(setting.ProjectPass);
+                var files = directory.GetDirectories("*", SearchOption.TopDirectoryOnly);
+                if (0 < files.Length)
+                {
+                    Application.Current.Properties[AppPropertiesConst.CURRENT_PROJECT] = files.First().Name;
+                }
             }
 
             return Container.Resolve<MainWindow>();

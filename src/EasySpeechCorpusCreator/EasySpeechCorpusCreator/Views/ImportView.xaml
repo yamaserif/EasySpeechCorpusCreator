@@ -36,6 +36,11 @@
 
             <RowDefinition Height="10"/>
 
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="10"/>
+
             <RowDefinition Height="23"/>
 
             <RowDefinition Height="5"/>
@@ -55,7 +60,10 @@
         <TextBox Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="2" Text="{Binding ImportFormat.Value}"/>
         <Button Grid.Column="6" Grid.Row="8" Command="{Binding FormatTestCommand}" Content="{Binding ImportTestText.Value}"/>
 
-        <Button Grid.Column="1" Grid.Row="10" Command="{Binding ImportCommand}" Content="{Binding ImportText.Value}"/>
-        <Button Grid.Column="3" Grid.Row="10" Command="{Binding ResetImportCommand}" Content="{Binding ResetImportText.Value}"/>
+        <TextBlock Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="6" Text="{Binding ExplainImportName.Value}"/>
+        <TextBox Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="6" Text="{Binding ImportName.Value}"/>
+
+        <Button Grid.Column="1" Grid.Row="13" Command="{Binding ImportCommand}" Content="{Binding ImportText.Value}"/>
+        <Button Grid.Column="3" Grid.Row="13" Command="{Binding ResetImportCommand}" Content="{Binding ResetImportText.Value}"/>
     </Grid>
 </UserControl>
