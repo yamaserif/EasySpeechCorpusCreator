@@ -13,14 +13,14 @@ namespace EasySpeechCorpusCreator.ViewModels
     public class ViewModelBase : BindableBase, IDestructible, IDisposable
     {
         protected Settings Settings { get; set; }
-        protected string CurrentProject { get; set; }
+        protected CurrentData CurrentData { get; set; }
 
         protected CompositeDisposable Disposable { get; } = new CompositeDisposable();
 
         public ViewModelBase()
         {
             this.Settings = Application.Current.Properties[AppPropertiesConst.SETTINGS] as Settings ?? new Settings();
-            this.CurrentProject = Application.Current.Properties[AppPropertiesConst.CURRENT_PROJECT] as string ?? string.Empty;
+            this.CurrentData = Application.Current.Properties[AppPropertiesConst.CURRENT_DATA] as CurrentData ?? new CurrentData();
         }
 
         public void Dispose()

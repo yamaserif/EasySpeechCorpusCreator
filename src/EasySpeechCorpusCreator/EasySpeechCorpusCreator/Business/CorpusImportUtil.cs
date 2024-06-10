@@ -15,9 +15,9 @@ namespace EasySpeechCorpusCreator.Business
             var returnCorpus = new CorpusItem(no);
 
             var properties = new List<string>();
-            properties.Add(importVariableChar + nameof(CorpusItem.Name) + importVariableChar);
-            properties.Add(importVariableChar + nameof(CorpusItem.Sentence) + importVariableChar);
-            properties.Add(importVariableChar + nameof(CorpusItem.Kana) + importVariableChar);
+            properties.Add(importVariableChar + nameof(CorpusItem.SentenceData.Name) + importVariableChar);
+            properties.Add(importVariableChar + nameof(CorpusItem.SentenceData.Sentence) + importVariableChar);
+            properties.Add(importVariableChar + nameof(CorpusItem.SentenceData.Kana) + importVariableChar);
 
             properties.RemoveAll(property => importFormat.IndexOf(property) < 0);
 

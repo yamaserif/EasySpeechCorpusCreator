@@ -56,7 +56,7 @@ namespace EasySpeechCorpusCreator
                 var files = directory.GetDirectories("*", SearchOption.TopDirectoryOnly);
                 if (0 < files.Length)
                 {
-                    Application.Current.Properties[AppPropertiesConst.CURRENT_PROJECT] = files.First().Name;
+                    Application.Current.Properties[AppPropertiesConst.CURRENT_DATA] = new CurrentData(files.First().Name);
                 }
             }
 

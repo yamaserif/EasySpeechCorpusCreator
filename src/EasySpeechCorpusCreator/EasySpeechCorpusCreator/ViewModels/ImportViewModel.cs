@@ -111,9 +111,9 @@ namespace EasySpeechCorpusCreator.ViewModels
                     {
                         var corpusItem = CorpusImportUtil.ToCorpusItem(0, line, this.ImportVariableChar.Value, this.ImportFormat.Value);
 
-                        testResult += CorpusConst.NAME + ": " + corpusItem.Name + '\n';
-                        testResult += CorpusConst.SENTENCE + ": " + corpusItem.Sentence + '\n';
-                        testResult += CorpusConst.KANA + ": " + corpusItem.Kana + '\n';
+                        testResult += CorpusConst.NAME + ": " + corpusItem.SentenceData.Name + '\n';
+                        testResult += CorpusConst.SENTENCE + ": " + corpusItem.SentenceData.Sentence + '\n';
+                        testResult += CorpusConst.KANA + ": " + corpusItem.SentenceData.Kana + '\n';
                     }
 
                     // テスト結果 ダイアログ
@@ -131,7 +131,7 @@ namespace EasySpeechCorpusCreator.ViewModels
         {
             var importPath = this.ImportPass.Value;
             var projectPath = System.IO.Path.Combine(this.Settings.ProjectPass, this.ImportName.Value);
-            var projectFilePath = System.IO.Path.Combine(projectPath, "aaa.json");
+            var projectFilePath = System.IO.Path.Combine(projectPath, CorpusConst.CORPUS_FILE_NAME_JSON);
             var enc = Encoding.GetEncoding(CorpusConst.CORPUS_FORMAT);
 
             // ディレクトリがない場合は作成する
@@ -172,7 +172,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                     for (var i = 1; (line = reader.ReadLine()) != null; i++)
                     {
                         var corpusItem = CorpusImportUtil.ToCorpusItem(i, line, this.ImportVariableChar.Value, this.ImportFormat.Value);
-                        var setStr = JsonUtil.ToJson(new CorpusItem(corpusItem.No, corpusItem.Name, corpusItem.Sentence, corpusItem.Kana));
+                        var setStr = JsonUtil.ToJson(new CorpusItem(corpusItem.No, corpusItem.SentenceData.Name, corpusItem.SentenceData.Sentence, corpusItem.SentenceData.Kana));
 
                         writer.Write(setStr);
                         if (-1 < reader.Peek())
@@ -182,7 +182,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                     }
                     writer.Write(']');
 
-                    this.CurrentProject = this.ImportName.Value;
+                    this.CurrentData.Project = this.ImportName.Value;
 
                     // インポート結果 ダイアログ
                     MessageBox.Show(importResult, DialogConst.IMPORT_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EasySpeechCorpusCreator.Models
@@ -11,16 +12,17 @@ namespace EasySpeechCorpusCreator.Models
     {
         public int No { get; set; }
 
-        public string Name { get; set; }
-        public string Sentence { get; set; }
-        public string Kana { get; set; }
+        public CorpusSentence SentenceData { get; set; }
 
-        public CorpusItem(int no, string name = "", string sentence = "", string kana = "")
+        public CorpusItem()
+        {
+            this.SentenceData = new CorpusSentence();
+        }
+
+        public CorpusItem(int no = 0, string name = "", string sentence = "", string kana = "")
         {
             this.No = no;
-            this.Name = name;
-            this.Sentence = sentence;
-            this.Kana = kana;
+            this.SentenceData = new CorpusSentence(name, sentence, kana);
         }
 
         public void SetProperty(string propertyName, string value)
@@ -34,16 +36,16 @@ namespace EasySpeechCorpusCreator.Models
                     }
                     break;
 
-                case nameof(this.Name):
-                    this.Name = value;
+                case nameof(this.SentenceData.Name):
+                    this.SentenceData.Name = value;
                     break;
 
-                case nameof(this.Sentence):
-                    this.Sentence = value;
+                case nameof(this.SentenceData.Sentence):
+                    this.SentenceData.Sentence = value;
                     break;
 
-                case nameof(this.Kana):
-                    this.Kana = value;
+                case nameof(this.SentenceData.Kana):
+                    this.SentenceData.Kana = value;
                     break;
             }
         }

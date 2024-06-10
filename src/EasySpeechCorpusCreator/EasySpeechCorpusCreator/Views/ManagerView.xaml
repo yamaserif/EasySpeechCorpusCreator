@@ -12,18 +12,31 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+
+            <RowDefinition Height="20"/>
+            
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="52"/>
+
+            <RowDefinition Height="10"/>
+
             <RowDefinition Height="*"/>
-            <RowDefinition Height="10*"/>
+
+            <RowDefinition Height="5"/>
+
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Text.Value}"/>
-        <ListView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding CorpusItems}" SelectedItem="{Binding SelectItem.Value}">
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Project.Value}"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="{Binding Project.Value}"/>
+        <ListView Grid.Column="0" Grid.Row="5" ItemsSource="{Binding CorpusItems}" SelectedItem="{Binding SelectItem.Value}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.No}" DisplayMemberBinding="{Binding Path=No}"/>
-                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Name}" DisplayMemberBinding="{Binding Path=Name}"/>
-                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Sentence}" DisplayMemberBinding="{Binding Path=Sentence}"/>
-                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Kana}" DisplayMemberBinding="{Binding Path=Kana}"/>
+                    <GridViewColumn Width="40" Header="{Binding CorpusItemHeader.Value.No}" DisplayMemberBinding="{Binding Path=No}"/>
+                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Name}" DisplayMemberBinding="{Binding Path=SentenceData.Name}"/>
+                    <GridViewColumn Width="500" Header="{Binding CorpusItemHeader.Value.Sentence}" DisplayMemberBinding="{Binding Path=SentenceData.Sentence}"/>
+                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Kana}" DisplayMemberBinding="{Binding Path=SentenceData.Kana}"/>
                 </GridView>
             </ListView.View>
         </ListView>
