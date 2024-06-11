@@ -18,16 +18,20 @@ namespace EasySpeechCorpusCreator.Models
 
         public string Kana { get; set; }
 
+        public string Tags { get; set; }
+
         public CorpusHeader(
             string no = CorpusConst.NO,
             string name = CorpusConst.NAME,
             string sentence = CorpusConst.SENTENCE,
-            string kana = CorpusConst.KANA)
+            string kana = CorpusConst.KANA,
+            string tags = CorpusConst.TAGS)
         {
             this.No = no;
             this.Name = name;
             this.Sentence = sentence;
             this.Kana = kana;
+            this.Tags = tags;
         }
     }
 }

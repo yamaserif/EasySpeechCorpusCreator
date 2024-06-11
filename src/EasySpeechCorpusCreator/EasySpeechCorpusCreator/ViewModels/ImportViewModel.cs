@@ -143,6 +143,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             // インポート処理
             if (File.Exists(importPath))
             {
+                var isOverWrite = false;
                 // インポート済みの場合
                 if (File.Exists(projectFilePath))
                 {
@@ -152,6 +153,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                     {
                         // 上書き保存する場合はファイルを一旦削除
                         File.Delete(projectFilePath);
+                        isOverWrite = true;
                     }
                     else
                     {
@@ -182,6 +184,10 @@ namespace EasySpeechCorpusCreator.ViewModels
                     }
                     writer.Write(']');
 
+                    if (!isOverWrite)
+                    {
+                        this.Projects.Add(this.ImportName.Value);
+                    }
                     this.CurrentData.Project = this.ImportName.Value;
 
                     // インポート結果 ダイアログ

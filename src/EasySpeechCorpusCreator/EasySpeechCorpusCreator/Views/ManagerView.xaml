@@ -5,22 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:local="clr-namespace:EasySpeechCorpusCreator.Views"
+        xmlns:cnv="clr-namespace:EasySpeechCorpusCreator.Converter"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <cnv:TagsTextConverter x:Key="TagsTextConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
 
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="23"/>
             
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="5"/>
 
-            <RowDefinition Height="52"/>
+            <RowDefinition Height="19"/>
 
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="5"/>
+
+            <RowDefinition Height="19"/>
+
+            <RowDefinition Height="5"/>
+
+            <RowDefinition Height="19"/>
+
+            <RowDefinition Height="5"/>
+
+            <RowDefinition Height="19"/>
+
+            <RowDefinition Height="5"/>
+
+            <RowDefinition Height="19"/>
+
+            <RowDefinition Height="5"/>
+
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="5"/>
 
             <RowDefinition Height="*"/>
 
@@ -28,15 +56,34 @@
 
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Project.Value}"/>
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="{Binding Project.Value}"/>
-        <ListView Grid.Column="0" Grid.Row="5" ItemsSource="{Binding CorpusItems}" SelectedItem="{Binding SelectItem.Value}">
+        <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding LabelProject.Value}" FontSize="15"/>
+        <ComboBox Grid.Column="3" Grid.Row="1" ItemsSource="{Binding ProjectList}" SelectedValue="{Binding Project.Value, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="3" TextAlignment="Right" Text="{Binding LabelNo.Value}"/>
+        <TextBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding No.Value}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="5" TextAlignment="Right" Text="{Binding LabelName.Value}"/>
+        <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Text="{Binding Name.Value}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="7" TextAlignment="Right" Text="{Binding LabelSentence.Value}"/>
+        <TextBox Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" Text="{Binding Sentence.Value}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="9" TextAlignment="Right" Text="{Binding LabelKana.Value}"/>
+        <TextBox Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="2" Text="{Binding Kana.Value}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="11" TextAlignment="Right" Text="{Binding LabelTags.Value}"/>
+        <TextBox Grid.Column="2" Grid.Row="11" Grid.ColumnSpan="2" Text="{Binding Tags.Value, Converter={StaticResource TagsTextConverter}, UpdateSourceTrigger='PropertyChanged'}"/>
+
+        <Button Grid.Column="3" Grid.Row="13" Command="{Binding SaveCorpusItemCommand}" Content="{Binding SaveCorpusItemText.Value}"/>
+
+        <ListView Grid.Column="1" Grid.Row="15" Grid.ColumnSpan="3" ItemsSource="{Binding CorpusItems}" SelectedItem="{Binding SelectItem.Value}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="40" Header="{Binding CorpusItemHeader.Value.No}" DisplayMemberBinding="{Binding Path=No}"/>
                     <GridViewColumn Header="{Binding CorpusItemHeader.Value.Name}" DisplayMemberBinding="{Binding Path=SentenceData.Name}"/>
                     <GridViewColumn Width="500" Header="{Binding CorpusItemHeader.Value.Sentence}" DisplayMemberBinding="{Binding Path=SentenceData.Sentence}"/>
-                    <GridViewColumn Header="{Binding CorpusItemHeader.Value.Kana}" DisplayMemberBinding="{Binding Path=SentenceData.Kana}"/>
+                    <GridViewColumn Width="500" Header="{Binding CorpusItemHeader.Value.Kana}" DisplayMemberBinding="{Binding Path=SentenceData.Kana}"/>
+                    <GridViewColumn Width="100" Header="{Binding CorpusItemHeader.Value.Tags}" DisplayMemberBinding="{Binding Path=TagsStr}"/>
                 </GridView>
             </ListView.View>
         </ListView>

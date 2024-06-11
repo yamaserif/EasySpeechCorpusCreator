@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EasySpeechCorpusCreator.Models
@@ -14,15 +15,42 @@ namespace EasySpeechCorpusCreator.Models
 
         public CorpusSentence SentenceData { get; set; }
 
+        public List<string> Tags { get; set; }
+
+        [JsonIgnore]
+        public string TagsStr
+        {
+            get
+            {
+                return string.Join(", ", this.Tags);
+            }
+            set
+            {
+                var setStrData = value.Trim();
+                setStrData = Regex.Replace(setStrData, ", *", ",").Trim(',');
+                if (setStrData == string.Empty)
+                {
+                    this.Tags = new List<string>();
+                }
+                else
+                {
+                    var setData = setStrData.Split(",");
+                    this.Tags = setData.ToList();
+                }
+            }
+        }
+
         public CorpusItem()
         {
             this.SentenceData = new CorpusSentence();
+            this.Tags = new List<string>();
         }
 
         public CorpusItem(int no = 0, string name = "", string sentence = "", string kana = "")
         {
             this.No = no;
             this.SentenceData = new CorpusSentence(name, sentence, kana);
+            this.Tags = new List<string>();
         }
 
         public void SetProperty(string propertyName, string value)

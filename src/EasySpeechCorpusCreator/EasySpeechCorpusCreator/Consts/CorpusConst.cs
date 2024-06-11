@@ -10,6 +10,7 @@
         public const string NAME = "名前";
         public const string SENTENCE = "文章";
         public const string KANA = "カナ";
+        public const string TAGS = "タグ";
 
         // 無効な文章(インポート文字列)
         public const string INVALID = "_Invalid";
