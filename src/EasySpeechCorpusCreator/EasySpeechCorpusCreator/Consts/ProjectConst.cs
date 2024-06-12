@@ -2,6 +2,8 @@
 {
     public static class ProjectConst
     {
+        public const string NEW_PROJECT = "《新規プロジェクト》";
+
         // ラベル
         public const string LABEL_PROJECT = "プロジェクト：";
 

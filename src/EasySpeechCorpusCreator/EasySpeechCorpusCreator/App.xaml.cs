@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,8 @@ namespace EasySpeechCorpusCreator
             }
 
             // 作業プロジェクト 読み込み
+            Application.Current.Properties[AppPropertiesConst.PROJECTS] = new List<string>();
+            Application.Current.Properties[AppPropertiesConst.CURRENT_DATA] = new CurrentData();
             if (Directory.Exists(setting?.ProjectPass))
             {
                 var directory = new DirectoryInfo(setting.ProjectPass);

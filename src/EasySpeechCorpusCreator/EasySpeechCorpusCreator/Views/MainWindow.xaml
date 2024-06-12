@@ -9,7 +9,7 @@
         xmlns:vm="clr-namespace:EasySpeechCorpusCreator.ViewModels"
         mc:Ignorable="d"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title.Value}" Height="450" Width="800"
+        Title="{Binding Title.Value}" Height="650" Width="1000"
         Closing="Window_Closing"
         Closed="Window_Closed">
     <Grid>

@@ -37,16 +37,26 @@ namespace EasySpeechCorpusCreator.ViewModels
         public ReactiveProperty<string> Sentence { get; set; }
         public ReactiveProperty<string> Kana { get; set; }
         public ReactiveProperty<string> Tags { get; set; }
+        public ReactiveProperty<string> RubyText { get; set; }
+        public ReactiveProperty<string> RecordingText { get; set; }
 
         // 要素設定値
         public ReactiveCollection<string> ProjectList { get; set; }
         public ReactiveProperty<string> SaveCorpusItemText { get; set; }
+        public ReactiveProperty<string> AddCorpusItemText { get; set; }
+        public ReactiveProperty<string> DeleteCorpusItemText { get; set; }
+        public ReactiveProperty<string> PlayVoiceText { get; set; }
+        public ReactiveProperty<string> ExternalExeText { get; set; }
 
         // Header名
         public ReactiveProperty<CorpusHeader> CorpusItemHeader { get; }
 
         // ボタン 処理
         public DelegateCommand SaveCorpusItemCommand { get; set; }
+        public DelegateCommand AddCorpusItemCommand { get; set; }
+        public DelegateCommand DeleteCorpusItemCommand { get; set; }
+        public DelegateCommand PlayVoiceCommand { get; set; }
+        public DelegateCommand ExternalExeCommand { get; set; }
 
         public ManagerViewModel()
         {
@@ -57,7 +67,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.LabelKana = new ReactiveProperty<string>(CorpusConst.KANA + "：").AddTo(this.Disposable);
             this.LabelTags = new ReactiveProperty<string>(CorpusConst.TAGS + "：").AddTo(this.Disposable);
 
-            this.Project = new ReactiveProperty<string>(this.CurrentData.Project).AddTo(this.Disposable);
+            this.Project = new ReactiveProperty<string>(this.CurrentData.Project == string.Empty ? ProjectConst.NEW_PROJECT : this.CurrentData.Project).AddTo(this.Disposable);
             this.SelectItem = new ReactiveProperty<CorpusItem?>().AddTo(this.Disposable);
             this.CorpusItemHeader = new ReactiveProperty<CorpusHeader>(new CorpusHeader()).AddTo(this.Disposable);
             this.CorpusItems = new ReactiveCollection<CorpusItem>().AddTo(this.Disposable);
@@ -66,12 +76,23 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.Sentence = new ReactiveProperty<string>().AddTo(this.Disposable);
             this.Kana = new ReactiveProperty<string>().AddTo(this.Disposable);
             this.Tags = new ReactiveProperty<string>().AddTo(this.Disposable);
+            this.RubyText = new ReactiveProperty<string>().AddTo(this.Disposable);
+            this.RecordingText = new ReactiveProperty<string>(RecordingConst.READY).AddTo(this.Disposable);
 
             this.ProjectList = new ReactiveCollection<string>().AddTo(this.Disposable);
+            this.ProjectList.Add(ProjectConst.NEW_PROJECT);
             this.Projects.ForEach(project => this.ProjectList.Add(project));
             this.SaveCorpusItemText = new ReactiveProperty<string>(SystemConst.SAVE).AddTo(this.Disposable);
+            this.AddCorpusItemText = new ReactiveProperty<string>(SystemConst.ADD).AddTo(this.Disposable);
+            this.DeleteCorpusItemText = new ReactiveProperty<string>(SystemConst.DELETE).AddTo(this.Disposable);
+            this.PlayVoiceText = new ReactiveProperty<string>(SystemConst.PLAY_AUDIO).AddTo(this.Disposable);
+            this.ExternalExeText = new ReactiveProperty<string>(SystemConst.EXTERNAL_EXE).AddTo(this.Disposable);
 
             this.SaveCorpusItemCommand = new DelegateCommand(this.SaveCorpusItem);
+            this.AddCorpusItemCommand = new DelegateCommand(this.AddCorpusItem);
+            this.DeleteCorpusItemCommand = new DelegateCommand(this.DeleteCorpusItem);
+            this.PlayVoiceCommand = new DelegateCommand(this.PlayAudio);
+            this.ExternalExeCommand = new DelegateCommand(this.ExternalExe);
 
             this.Project.Subscribe(this.SetProject);
             this.SelectItem.Subscribe(this.ChangeCorpus);
@@ -100,6 +121,22 @@ namespace EasySpeechCorpusCreator.ViewModels
             }
 
             this.UpdateCorpusItem(this.CurrentData.Project, this.CorpusItems);
+        }
+
+        private void AddCorpusItem()
+        {
+        }
+
+        private void DeleteCorpusItem()
+        {
+        }
+
+        private void PlayAudio()
+        {
+        }
+
+        private void ExternalExe()
+        {
         }
 
         private void SetProject(string project)
@@ -133,6 +170,16 @@ namespace EasySpeechCorpusCreator.ViewModels
                 this.Sentence.Value = corpus.SentenceData.Sentence;
                 this.Kana.Value = corpus.SentenceData.Kana;
                 this.Tags.Value = corpus.TagsStr;
+                this.RubyText.Value = corpus.SentenceData.Sentence;
+            }
+            else
+            {
+                this.No.Value = string.Empty;
+                this.Name.Value = string.Empty;
+                this.Sentence.Value = string.Empty;
+                this.Kana.Value = string.Empty;
+                this.Tags.Value = string.Empty;
+                this.RubyText.Value = string.Empty;
             }
         }
 
