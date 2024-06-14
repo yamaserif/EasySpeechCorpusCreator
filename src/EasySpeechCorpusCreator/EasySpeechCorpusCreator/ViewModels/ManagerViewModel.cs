@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using EasySpeechCorpusCreator.Business;
 using EasySpeechCorpusCreator.Consts;
 using EasySpeechCorpusCreator.Models;
@@ -39,6 +46,8 @@ namespace EasySpeechCorpusCreator.ViewModels
         public ReactiveProperty<string> Tags { get; set; }
         public ReactiveProperty<string> RubyText { get; set; }
         public ReactiveProperty<string> RecordingText { get; set; }
+        public ReactiveProperty<string?> VoiceImagePath { get; set; }
+        public ReactiveProperty<ImageSource?> VoiceImage { get; set; }
 
         // 要素設定値
         public ReactiveCollection<string> ProjectList { get; set; }
@@ -78,6 +87,8 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.Tags = new ReactiveProperty<string>().AddTo(this.Disposable);
             this.RubyText = new ReactiveProperty<string>().AddTo(this.Disposable);
             this.RecordingText = new ReactiveProperty<string>(RecordingConst.READY).AddTo(this.Disposable);
+            this.VoiceImagePath = new ReactiveProperty<string?>().AddTo(this.Disposable);
+            this.VoiceImage = new ReactiveProperty<ImageSource?>().AddTo(this.Disposable);
 
             this.ProjectList = new ReactiveCollection<string>().AddTo(this.Disposable);
             this.ProjectList.Add(ProjectConst.NEW_PROJECT);
@@ -94,8 +105,14 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.PlayVoiceCommand = new DelegateCommand(this.PlayAudio);
             this.ExternalExeCommand = new DelegateCommand(this.ExternalExe);
 
+            // キー入力
+            this.KeySpaceDownAction = this.StartRecording;
+            this.KeySpaceUpAction = this.StopRecording;
+            this.KeyZDownAction = this.PlayAudio;
+
             this.Project.Subscribe(this.SetProject);
             this.SelectItem.Subscribe(this.ChangeCorpus);
+            this.VoiceImagePath.Subscribe(this.SetVoiceImage);
         }
 
         private void SaveCorpusItem()
@@ -125,18 +142,105 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         private void AddCorpusItem()
         {
+            var no = 0;
+            var name = this.Name.Value;
+            var sentence = this.Sentence.Value;
+            var kana = this.Kana.Value;
+            var tags = this.Tags.Value;
+            if (int.TryParse(this.No.Value, out var parseNo))
+            {
+                no = parseNo;
+            }
+
+            var addCorpusItem = new CorpusItem(
+                no,
+                name,
+                sentence,
+                kana,
+                tags
+            );
+            this.CorpusItems.Add(addCorpusItem);
+            this.SelectItem.Value = addCorpusItem;
+
+            this.UpdateCorpusItem(this.CurrentData.Project, this.CorpusItems);
         }
 
         private void DeleteCorpusItem()
         {
+            var selectItem = this.SelectItem.Value;
+            if (selectItem != null)
+            {
+                var index = this.CorpusItems.IndexOf(selectItem);
+                this.CorpusItems.Remove(selectItem);
+
+                if (index < this.CorpusItems.Count)
+                {
+                    this.SelectItem.Value = this.CorpusItems[index];
+                }
+                else
+                {
+                    this.SelectItem.Value = null;
+                }
+            }
+
+            this.UpdateCorpusItem(this.CurrentData.Project, this.CorpusItems);
         }
 
-        private void PlayAudio()
+        public void PlayAudio()
         {
+            var selectItem = this.SelectItem.Value;
+            if (selectItem != null)
+            {
+                var voicePath = System.IO.Path.Combine(
+                        this.Settings.ProjectPass,
+                        this.CurrentData.Project,
+                        RecordingConst.VOICE_DIRECTORY,
+                        selectItem.No + "_" + selectItem.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
+                    );
+                if (File.Exists(voicePath))
+                {
+                    AudioUtil.PlayAudio(System.IO.Path.Combine(voicePath));
+                }
+            }
         }
 
         private void ExternalExe()
         {
+        }
+
+        public void StartRecording()
+        {
+            if (!(FocusManager.GetFocusedElement(this.MainWindow) is TextBox))
+            {
+                this.RecordingText.Value = RecordingConst.RECORDING_NOW;
+                this.VoiceImagePath.Value = null;
+
+                var selectItem = this.SelectItem.Value;
+                if (selectItem != null)
+                {
+                    var voicePath = System.IO.Path.Combine(
+                        this.Settings.ProjectPass,
+                        this.CurrentData.Project,
+                        RecordingConst.VOICE_DIRECTORY,
+                        selectItem.No + "_" + selectItem.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
+                        );
+                    AudioUtil.StartRecording(voicePath, 0, 44100);
+                }
+            }
+        }
+
+        public void StopRecording()
+        {
+            this.RecordingText.Value = RecordingConst.READY;
+
+            AudioUtil.StopRecording();
+
+            this.VoiceImagePath.Value = System.IO.Path.Combine(
+                this.Settings.ProjectPass,
+                this.CurrentData.Project,
+                RecordingConst.VOICE_DIRECTORY,
+                this.SelectItem.Value?.No + "_" + this.SelectItem.Value?.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
+                );
         }
 
         private void SetProject(string project)
@@ -171,6 +275,15 @@ namespace EasySpeechCorpusCreator.ViewModels
                 this.Kana.Value = corpus.SentenceData.Kana;
                 this.Tags.Value = corpus.TagsStr;
                 this.RubyText.Value = corpus.SentenceData.Sentence;
+
+                var voicePath = System.IO.Path.Combine(
+                    this.Settings.ProjectPass,
+                    this.CurrentData.Project,
+                    RecordingConst.VOICE_DIRECTORY,
+                    corpus.No + "_" + corpus.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
+                    );
+
+                this.VoiceImagePath.Value = voicePath;
             }
             else
             {
@@ -180,6 +293,15 @@ namespace EasySpeechCorpusCreator.ViewModels
                 this.Kana.Value = string.Empty;
                 this.Tags.Value = string.Empty;
                 this.RubyText.Value = string.Empty;
+                this.VoiceImagePath.Value = null;
+            }
+        }
+
+        private void SetVoiceImage(string? path)
+        {
+            if (path != null)
+            {
+                this.VoiceImage.Value = AudioUtil.ExWaveImage(path);
             }
         }
 

@@ -132,6 +132,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             var importPath = this.ImportPass.Value;
             var projectPath = System.IO.Path.Combine(this.Settings.ProjectPass, this.ImportName.Value);
             var projectFilePath = System.IO.Path.Combine(projectPath, CorpusConst.CORPUS_FILE_NAME_JSON);
+            var projectVoicePath = System.IO.Path.Combine(projectPath, RecordingConst.VOICE_DIRECTORY);
             var enc = Encoding.GetEncoding(CorpusConst.CORPUS_FORMAT);
 
             // ディレクトリがない場合は作成する
@@ -153,6 +154,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                     {
                         // 上書き保存する場合はファイルを一旦削除
                         File.Delete(projectFilePath);
+                        Directory.Delete(projectVoicePath);
                         isOverWrite = true;
                     }
                     else
@@ -189,6 +191,8 @@ namespace EasySpeechCorpusCreator.ViewModels
                         this.Projects.Add(this.ImportName.Value);
                     }
                     this.CurrentData.Project = this.ImportName.Value;
+
+                    Directory.CreateDirectory(projectVoicePath);
 
                     // インポート結果 ダイアログ
                     MessageBox.Show(importResult, DialogConst.IMPORT_CAPTION, MessageBoxButton.OK, MessageBoxImage.Information);

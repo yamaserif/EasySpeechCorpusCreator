@@ -46,11 +46,12 @@ namespace EasySpeechCorpusCreator.Models
             this.Tags = new List<string>();
         }
 
-        public CorpusItem(int no = 0, string name = "", string sentence = "", string kana = "")
+        public CorpusItem(int no = 0, string name = "", string sentence = "", string kana = "", string tags = "")
         {
             this.No = no;
             this.SentenceData = new CorpusSentence(name, sentence, kana);
             this.Tags = new List<string>();
+            this.TagsStr = tags;
         }
 
         public void SetProperty(string propertyName, string value)

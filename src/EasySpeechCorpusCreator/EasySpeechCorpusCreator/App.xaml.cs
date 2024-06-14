@@ -65,7 +65,10 @@ namespace EasySpeechCorpusCreator
                 }
             }
 
-            return Container.Resolve<MainWindow>();
+            var mainWindow = Container.Resolve<MainWindow>();
+            Application.Current.Properties[AppPropertiesConst.MAIN_WINDOW] = mainWindow;
+
+            return mainWindow;
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -11,7 +11,9 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title.Value}" Height="650" Width="1000"
         Closing="Window_Closing"
-        Closed="Window_Closed">
+        Closed="Window_Closed"
+        PreviewKeyDown="Window_KeyDown"
+        PreviewKeyUp="Window_KeyUp">
     <Grid>
         <TabControl>
             <!-- 管理画面 -->

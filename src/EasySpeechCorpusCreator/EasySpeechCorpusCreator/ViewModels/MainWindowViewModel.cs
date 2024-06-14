@@ -1,4 +1,5 @@
 ﻿using EasySpeechCorpusCreator.Consts;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Reactive.Bindings;

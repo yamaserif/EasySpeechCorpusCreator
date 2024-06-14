@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Xml;
 
 namespace EasySpeechCorpusCreator.Views
@@ -15,6 +16,12 @@ namespace EasySpeechCorpusCreator.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Dictionary<Key, bool> IsDowning { get; set; } = new Dictionary<Key, bool>()
+        {
+            {Key.Space, false},
+            {Key.Z, false}
+        };
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +42,7 @@ namespace EasySpeechCorpusCreator.Views
         {
             // 各ViewModelを取得
             var viewModels = new List<ViewModelBase?>() {
-                this.DataContext as ViewModelBase // MainWindow
+                this.DataContext as ViewModelBase
             };
 
             var mainGrid = this.Content as Grid;
@@ -51,10 +58,51 @@ namespace EasySpeechCorpusCreator.Views
                 }
             }
 
-            // Destroyを叩く
             foreach (var viewModel in viewModels)
             {
+                // Closeイベント
+                viewModel?.CloseEvents();
+
+                // Destroyを叩く
                 viewModel?.Destroy();
+            }
+        }
+
+        public void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            var viewModel = this.DataContext as ViewModelBase;
+            switch (e.Key)
+            {
+                case Key.Space:
+                    if (!this.IsDowning[Key.Space])
+                    {
+                        this.IsDowning[Key.Space] = true;
+                        viewModel?.KeySpaceDownAction();
+                    }
+                    break;
+                case Key.Z:
+                    if (!this.IsDowning[Key.Z])
+                    {
+                        this.IsDowning[Key.Z] = true;
+                        viewModel?.KeyZDownAction();
+                    }
+                    break;
+            }
+        }
+
+        public void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            var viewModel = this.DataContext as ViewModelBase;
+            switch (e.Key)
+            {
+                case Key.Space:
+                    this.IsDowning[Key.Space] = false;
+                    viewModel?.KeySpaceUpAction();
+                    break;
+                case Key.Z:
+                    this.IsDowning[Key.Z] = false;
+                    viewModel?.KeyZUpAction();
+                    break;
             }
         }
     }

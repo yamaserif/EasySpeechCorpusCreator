@@ -54,6 +54,10 @@
 
             <RowDefinition Height="5"/>
 
+            <RowDefinition Height="40"/>
+
+            <RowDefinition Height="5"/>
+
             <RowDefinition Height="84"/>
 
             <RowDefinition Height="5"/>
@@ -90,15 +94,19 @@
         <Button Grid.Column="4" Grid.Row="13" Command="{Binding DeleteCorpusItemCommand}" Content="{Binding DeleteCorpusItemText.Value}"/>
         <Button Grid.Column="6" Grid.Row="13" Command="{Binding SaveCorpusItemCommand}" Content="{Binding SaveCorpusItemText.Value}"/>
 
-        <Border Grid.Column="1" Grid.Row="15" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="1">
+        <Border Grid.Column="1" Grid.Row="15" Grid.ColumnSpan="6" BorderBrush="Gray" BorderThickness="1">
+            <Image Stretch="Fill" Source="{Binding VoiceImage.Value}"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="17" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="1">
             <WebBrowser cnu:RubyTextSourceUtility.BindableSource="{Binding RubyText.Value}" Margin="2"/>
         </Border>
 
-        <TextBlock Grid.Column="1" Grid.Row="17" Grid.ColumnSpan="6" TextAlignment="Center" Text="{Binding RecordingText.Value}" FontSize="17"/>
-        <Button Grid.Column="1" Grid.Row="17" Grid.ColumnSpan="2" Command="{Binding ExternalExeCommand}" Content="{Binding ExternalExeText.Value}" FontSize="10"/>
-        <Button Grid.Column="4" Grid.Row="17" Command="{Binding PlayVoiceCommand}" Content="{Binding PlayVoiceText.Value}"/>
+        <TextBlock Grid.Column="1" Grid.Row="19" Grid.ColumnSpan="6" TextAlignment="Center" Text="{Binding RecordingText.Value}" FontSize="17"/>
+        <Button Grid.Column="1" Grid.Row="19" Grid.ColumnSpan="2" Command="{Binding ExternalExeCommand}" Content="{Binding ExternalExeText.Value}" FontSize="10"/>
+        <Button Grid.Column="4" Grid.Row="19" Command="{Binding PlayVoiceCommand}" Content="{Binding PlayVoiceText.Value}"/>
 
-        <ListView Grid.Column="1" Grid.Row="19" Grid.ColumnSpan="6" ItemsSource="{Binding CorpusItems}" SelectedItem="{Binding SelectItem.Value}">
+        <ListView Grid.Column="1" Grid.Row="21" Grid.ColumnSpan="6" ItemsSource="{Binding CorpusItems}" SelectedItem="{Binding SelectItem.Value}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="40" Header="{Binding CorpusItemHeader.Value.No}" DisplayMemberBinding="{Binding Path=No}"/>
