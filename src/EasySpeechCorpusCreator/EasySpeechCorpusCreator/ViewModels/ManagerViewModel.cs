@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reactive.Disposables;
@@ -22,6 +23,7 @@ using Prism.Navigation;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using UtfUnknown;
+using static Microsoft.WindowsAPICodePack.Shell.PropertySystem.SystemProperties.System;
 
 namespace EasySpeechCorpusCreator.ViewModels
 {
@@ -275,6 +277,28 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         private void ExternalExe()
         {
+            var selectItem = this.SelectItem.Value;
+            if (selectItem != null)
+            {
+                if (selectItem.VoiceFileName != string.Empty)
+                {
+                    var voiceFilePath = this.GetVoicePath(selectItem.VoiceFileName);
+                    var cmd = this.Settings.ExternalSoftware.Replace(SettingsConst.EXTERNAL_SOFTWARE_PATH, voiceFilePath);
+                    var cmdValues = cmd.Split(' ').ToList();
+                    for (var i = 0; i < cmdValues.Count; i++)
+                    {
+                        cmdValues[i] = cmdValues[i].Replace(SettingsConst.EXTERNAL_SOFTWARE_SPACE, " ");
+                    }
+
+                    if (0 < cmdValues.Count)
+                    {
+                        var exeCmd = cmdValues.First();
+                        cmdValues.RemoveAt(0);
+                        var exeArgs = string.Join(' ', cmdValues);
+                        Process.Start(exeCmd, exeArgs);
+                    }
+                }
+            }
         }
 
         public void StartRecording()
@@ -288,7 +312,12 @@ namespace EasySpeechCorpusCreator.ViewModels
                 if (selectItem != null)
                 {
                     var voicePath = this.GetVoicePath(selectItem);
-                    AudioUtil.StartRecording(voicePath, 0, 44100);
+                    var deviceId = this.Settings.DeviceId;
+                    var samplingRate = this.Settings.SamplingRate;
+                    AudioUtil.StartRecording(
+                        voicePath,
+                        deviceId < 0 ? 0 : deviceId,
+                        samplingRate);
                 }
             }
         }
@@ -313,6 +342,15 @@ namespace EasySpeechCorpusCreator.ViewModels
         private void SetProject(string? project)
         {
             this.EditProjectName.Value = project ?? string.Empty;
+
+            if (project == ProjectConst.NEW_PROJECT)
+            {
+                this.LabelEditProject.Value = ProjectConst.LABEL_ADD_PROJECT;
+            }
+            else
+            {
+                this.LabelEditProject.Value = ProjectConst.LABEL_EDIT_PROJECT;
+            }
 
             this.CorpusItems.Clear();
 

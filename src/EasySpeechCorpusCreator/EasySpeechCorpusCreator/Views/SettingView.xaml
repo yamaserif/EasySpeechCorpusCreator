@@ -26,8 +26,23 @@
             
             <RowDefinition Height="10"/>
             
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="34"/>
             <RowDefinition Height="23"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="20"/>
 
             <RowDefinition Height="10"/>
             
@@ -43,7 +58,16 @@
         <TextBlock Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="6" Text="{Binding ExplainFormat.Value}"/>
         <ComboBox Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="6" ItemsSource="{Binding FormatList}" SelectedValue="{Binding Format.Value, Mode=TwoWay}"/>
 
-        <Button Grid.Column="1" Grid.Row="7" Command="{Binding SaveSettingCommand}" Content="{Binding SaveSettingText.Value}"/>
-        <Button Grid.Column="3" Grid.Row="7" Command="{Binding ResetSettingCommand}" Content="{Binding ResetSettingText.Value}"/>
+        <TextBlock Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="6" Text="{Binding ExplainExternalSoftware.Value}"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="6" Text="{Binding ExternalSoftware.Value}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="6" Text="{Binding ExplainDevice.Value}"/>
+        <ComboBox Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="6" ItemsSource="{Binding DeviceList}" SelectedValue="{Binding Device.Value, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="13" Grid.ColumnSpan="6" Text="{Binding ExplainSamplingRate.Value}"/>
+        <TextBox Grid.Column="1" Grid.Row="14" Grid.ColumnSpan="6" Text="{Binding SamplingRate.Value}"/>
+
+        <Button Grid.Column="1" Grid.Row="16" Command="{Binding SaveSettingCommand}" Content="{Binding SaveSettingText.Value}"/>
+        <Button Grid.Column="3" Grid.Row="16" Command="{Binding ResetSettingCommand}" Content="{Binding ResetSettingText.Value}"/>
     </Grid>
 </UserControl>

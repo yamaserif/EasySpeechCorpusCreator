@@ -2,6 +2,7 @@
 using NAudio.Wave;
 using NAudio.WaveFormRenderer;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -19,9 +20,9 @@ namespace EasySpeechCorpusCreator.Business
         public static AudioStatus Status { get; set; } = AudioStatus.Idling;
 
         // 録音
-        public static WaveInEvent? WaveIn { get; set; }
+        public static WaveInEvent? WaveInEvent { get; set; }
         public static WaveFileWriter? WaveWriter { get; set; }
-        public static WaveOutEvent? WaveOut { get; set; }
+        public static WaveOutEvent? WaveOutEvent { get; set; }
         public static AudioFileReader? AudioReader { get; set; }
 
         public enum AudioStatus
@@ -46,9 +47,9 @@ namespace EasySpeechCorpusCreator.Business
 
             AudioUtil.Status = AudioStatus.Recording;
 
-            AudioUtil.WaveIn = new WaveInEvent();
-            AudioUtil.WaveIn.DeviceNumber = deviceNumber;
-            AudioUtil.WaveIn.WaveFormat = new WaveFormat(sampleRate, WaveInEvent.GetCapabilities(deviceNumber).Channels);
+            AudioUtil.WaveInEvent = new WaveInEvent();
+            AudioUtil.WaveInEvent.DeviceNumber = deviceNumber;
+            AudioUtil.WaveInEvent.WaveFormat = new WaveFormat(sampleRate, WaveInEvent.GetCapabilities(deviceNumber).Channels);
 
             var directoryName = Path.GetDirectoryName(savePath);
             if (!Directory.Exists(directoryName) && directoryName != null)
@@ -56,28 +57,28 @@ namespace EasySpeechCorpusCreator.Business
                 Directory.CreateDirectory(directoryName);
             }
 
-            AudioUtil.WaveWriter = new WaveFileWriter(savePath, AudioUtil.WaveIn.WaveFormat);
+            AudioUtil.WaveWriter = new WaveFileWriter(savePath, AudioUtil.WaveInEvent.WaveFormat);
 
-            AudioUtil.WaveIn.DataAvailable += (_, e) =>
+            AudioUtil.WaveInEvent.DataAvailable += (_, e) =>
             {
                 AudioUtil.WaveWriter?.Write(e.Buffer, 0, e.BytesRecorded);
                 AudioUtil.WaveWriter?.Flush();
             };
-            AudioUtil.WaveIn.RecordingStopped += (_, __) =>
+            AudioUtil.WaveInEvent.RecordingStopped += (_, __) =>
             {
                 AudioUtil.WaveWriter?.Flush();
             };
 
-            AudioUtil.WaveIn.StartRecording();
+            AudioUtil.WaveInEvent.StartRecording();
         }
 
         public static void StopRecording()
         {
             if (AudioUtil.Status == AudioStatus.Recording)
             {
-                AudioUtil.WaveIn?.StopRecording();
-                AudioUtil.WaveIn?.Dispose();
-                AudioUtil.WaveIn = null;
+                AudioUtil.WaveInEvent?.StopRecording();
+                AudioUtil.WaveInEvent?.Dispose();
+                AudioUtil.WaveInEvent = null;
 
                 AudioUtil.WaveWriter?.Close();
                 AudioUtil.WaveWriter?.Dispose();
@@ -102,19 +103,19 @@ namespace EasySpeechCorpusCreator.Business
 
             AudioUtil.Status = AudioStatus.Playing;
 
-            AudioUtil.WaveOut = new WaveOutEvent();
+            AudioUtil.WaveOutEvent = new WaveOutEvent();
             AudioUtil.AudioReader = new AudioFileReader(audioPath);
-            AudioUtil.WaveOut.Init(AudioUtil.AudioReader);
-            AudioUtil.WaveOut.Play();
+            AudioUtil.WaveOutEvent.Init(AudioUtil.AudioReader);
+            AudioUtil.WaveOutEvent.Play();
         }
 
         public static void StopAudio()
         {
             if (AudioUtil.Status == AudioStatus.Playing)
             {
-                AudioUtil.WaveOut?.Stop();
-                AudioUtil.WaveOut?.Dispose();
-                AudioUtil.WaveOut = null;
+                AudioUtil.WaveOutEvent?.Stop();
+                AudioUtil.WaveOutEvent?.Dispose();
+                AudioUtil.WaveOutEvent = null;
 
                 AudioUtil.AudioReader?.Close();
                 AudioUtil.AudioReader?.Dispose();
@@ -192,6 +193,18 @@ namespace EasySpeechCorpusCreator.Business
             }
 
             return returnImg;
+        }
+
+        public static List<string> GetRecordingDevices()
+        {
+            var devices = new List<string>();
+            for (int i = 0; i < WaveIn.DeviceCount; i++)
+            {
+                var deviceName = WaveIn.GetCapabilities(i).ProductName;
+                devices.Add(deviceName);
+            }
+
+            return devices;
         }
     }
 }
