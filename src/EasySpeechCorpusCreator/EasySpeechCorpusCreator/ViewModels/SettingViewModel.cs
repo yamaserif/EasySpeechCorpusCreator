@@ -47,8 +47,8 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.SettingProjectPassText = new ReactiveProperty<string>(SystemConst.SETTING_PATH).AddTo(this.Disposable);
             this.FormatList = new ReactiveCollection<Format>()
             {
-                SettingsConst.Format.CSV,
-                SettingsConst.Format.JSON
+                SettingsConst.Format.JSON,
+                SettingsConst.Format.CSV
             }.AddTo(this.Disposable);
             this.SaveSettingText = new ReactiveProperty<string>(SystemConst.SAVE).AddTo(this.Disposable);
             this.ResetSettingText = new ReactiveProperty<string>(SystemConst.RESET).AddTo(this.Disposable);

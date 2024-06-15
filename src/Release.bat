@@ -1,4 +1,4 @@
-rem -ãƒ“ãƒ«ãƒ‰ã‚¿ã‚¹ã‚¯------------------------------------
+rem -ƒrƒ‹ƒhƒ^ƒXƒN------------------------------------
 rem 64bit Windows
 dotnet publish ^
     EasySpeechCorpusCreator\EasySpeechCorpusCreator\EasySpeechCorpusCreator.csproj ^
@@ -15,7 +15,7 @@ dotnet publish ^
     -r win-x86 ^
     --self-contained true
 
-rem -å…¬é–‹å‡¦ç†------------------------------------
+rem -ŒöŠJˆ—------------------------------------
 rem 64bit Windows
 mkdir ..\apps\temp\EasySpeechCorpusCreator\win-x64
 xcopy /S /E /F /G /H /R /K /Y EasySpeechCorpusCreator\EasySpeechCorpusCreator\bin\Release\publish\win-x64 ^
@@ -38,5 +38,5 @@ powershell compress-archive -Force ^
     ..\apps\EasySpeechCorpusCreator_win-x86.zip
 rmdir ..\apps\temp /s /q
 
-rem -å®Œäº†------------------------------------
+rem -Š®—¹------------------------------------
 pause

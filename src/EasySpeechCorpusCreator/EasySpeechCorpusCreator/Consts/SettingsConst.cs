@@ -7,18 +7,18 @@
 
         // 設定値 説明
         public const string EXPLAIN_PROJECT_PASS = "● プロジェクトのパス：\nコーパスのデータを管理するフォルダを設定します。\nコーパスを公開する際はこちらの中身をそのまま使用できます。";
-        public const string EXPLAIN_FORMAT = "● コーパスのフォーマット：\nコーパス管理データの形式を設定します。";
+        public const string EXPLAIN_FORMAT = "● コーパスのフォーマット：\nコーパス管理データの形式を設定します。(新しいプロジェクトから適用)";
 
         // デフォルト値
         public const string DEFAULT_PROJECT_PASS = @".\..\projects\";
-        public const Format DEFAULT_FORMAT = Format.CSV;
+        public const Format DEFAULT_FORMAT = Format.JSON;
 
 
         // コーパス情報 保存フォーマット
         public enum Format
         {
-            CSV,
-            JSON
+            JSON,
+            CSV
         }
     }
 }

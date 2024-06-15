@@ -15,6 +15,8 @@ namespace EasySpeechCorpusCreator.Models
 
         public CorpusSentence SentenceData { get; set; }
 
+        public string VoiceFileName { get; set; }
+
         public List<string> Tags { get; set; }
 
         [JsonIgnore]
@@ -43,14 +45,16 @@ namespace EasySpeechCorpusCreator.Models
         public CorpusItem()
         {
             this.SentenceData = new CorpusSentence();
+            this.VoiceFileName = string.Empty;
             this.Tags = new List<string>();
         }
 
-        public CorpusItem(int no = 0, string name = "", string sentence = "", string kana = "", string tags = "")
+        public CorpusItem(int no = 0, string name = "", string sentence = "", string kana = "", string voiceFileName = "", string tags = "")
         {
             this.No = no;
             this.SentenceData = new CorpusSentence(name, sentence, kana);
             this.Tags = new List<string>();
+            this.VoiceFileName = voiceFileName;
             this.TagsStr = tags;
         }
 

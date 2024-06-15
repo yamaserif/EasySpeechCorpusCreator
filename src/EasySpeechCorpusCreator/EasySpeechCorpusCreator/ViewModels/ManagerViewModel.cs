@@ -29,6 +29,7 @@ namespace EasySpeechCorpusCreator.ViewModels
     {
         // ラベル
         public ReactiveProperty<string> LabelProject { get; set; }
+        public ReactiveProperty<string> LabelEditProject { get; set; }
         public ReactiveProperty<string> LabelNo { get; set; }
         public ReactiveProperty<string> LabelName { get; set; }
         public ReactiveProperty<string> LabelSentence { get; set; }
@@ -37,6 +38,7 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         // 中身
         public ReactiveProperty<string> Project { get; }
+        public ReactiveProperty<string> EditProjectName { get; }
         public ReactiveProperty<CorpusItem?> SelectItem { get; }
         public ReactiveCollection<CorpusItem> CorpusItems { get; }
         public ReactiveProperty<string> No { get; set; }
@@ -61,6 +63,7 @@ namespace EasySpeechCorpusCreator.ViewModels
         public ReactiveProperty<CorpusHeader> CorpusItemHeader { get; }
 
         // ボタン 処理
+        public DelegateCommand EditProjectCommand { get; set; }
         public DelegateCommand SaveCorpusItemCommand { get; set; }
         public DelegateCommand AddCorpusItemCommand { get; set; }
         public DelegateCommand DeleteCorpusItemCommand { get; set; }
@@ -70,6 +73,7 @@ namespace EasySpeechCorpusCreator.ViewModels
         public ManagerViewModel()
         {
             this.LabelProject = new ReactiveProperty<string>(ProjectConst.LABEL_PROJECT).AddTo(this.Disposable);
+            this.LabelEditProject = new ReactiveProperty<string>(ProjectConst.LABEL_EDIT_PROJECT).AddTo(this.Disposable);
             this.LabelNo = new ReactiveProperty<string>(CorpusConst.NO + "：").AddTo(this.Disposable);
             this.LabelName = new ReactiveProperty<string>(CorpusConst.NAME + "：").AddTo(this.Disposable);
             this.LabelSentence = new ReactiveProperty<string>(CorpusConst.SENTENCE + "：").AddTo(this.Disposable);
@@ -77,6 +81,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.LabelTags = new ReactiveProperty<string>(CorpusConst.TAGS + "：").AddTo(this.Disposable);
 
             this.Project = new ReactiveProperty<string>(this.CurrentData.Project == string.Empty ? ProjectConst.NEW_PROJECT : this.CurrentData.Project).AddTo(this.Disposable);
+            this.EditProjectName = new ReactiveProperty<string>(this.Project.Value).AddTo(this.Disposable);
             this.SelectItem = new ReactiveProperty<CorpusItem?>().AddTo(this.Disposable);
             this.CorpusItemHeader = new ReactiveProperty<CorpusHeader>(new CorpusHeader()).AddTo(this.Disposable);
             this.CorpusItems = new ReactiveCollection<CorpusItem>().AddTo(this.Disposable);
@@ -99,6 +104,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.PlayVoiceText = new ReactiveProperty<string>(SystemConst.PLAY_AUDIO).AddTo(this.Disposable);
             this.ExternalExeText = new ReactiveProperty<string>(SystemConst.EXTERNAL_EXE).AddTo(this.Disposable);
 
+            this.EditProjectCommand = new DelegateCommand(this.EditProject);
             this.SaveCorpusItemCommand = new DelegateCommand(this.SaveCorpusItem);
             this.AddCorpusItemCommand = new DelegateCommand(this.AddCorpusItem);
             this.DeleteCorpusItemCommand = new DelegateCommand(this.DeleteCorpusItem);
@@ -115,12 +121,53 @@ namespace EasySpeechCorpusCreator.ViewModels
             this.VoiceImagePath.Subscribe(this.SetVoiceImage);
         }
 
+        private void EditProject()
+        {
+            var newProjectName = this.EditProjectName.Value;
+
+            if (this.CurrentData.Project != newProjectName || ProjectConst.NEW_PROJECT == newProjectName)
+            {
+                var newIndex = this.ProjectList.IndexOf(newProjectName);
+                while (0 <= newIndex)
+                {
+                    newProjectName += ProjectConst.PROJECT_NAME_SUFFIX;
+                    newIndex = this.ProjectList.IndexOf(newProjectName);
+                }
+
+                var oldDirectoryParh = System.IO.Path.Combine(this.Settings.ProjectPass, this.CurrentData.Project);
+                var newDirectoryParh = System.IO.Path.Combine(this.Settings.ProjectPass, newProjectName);
+                if (Directory.Exists(oldDirectoryParh))
+                {
+                    AudioUtil.StopAudio();
+                    Directory.Move(oldDirectoryParh, newDirectoryParh);
+
+                    var oldIndex = this.Projects.IndexOf(this.CurrentData.Project);
+                    this.Projects[oldIndex] = newProjectName;
+
+                    oldIndex = this.ProjectList.IndexOf(this.CurrentData.Project);
+                    this.ProjectList[oldIndex] = newProjectName;
+                }
+                else
+                {
+                    Directory.CreateDirectory(newDirectoryParh);
+
+                    this.Projects.Add(newProjectName);
+                    this.ProjectList.Add(newProjectName);
+                }
+
+                this.Project.Value = newProjectName;
+
+                this.EditProjectName.Value = newProjectName;
+            }
+        }
+
         private void SaveCorpusItem()
         {
             var selectItem = this.SelectItem.Value;
 
             if (selectItem != null)
             {
+                var oldVoicePath = selectItem.VoiceFileName;
                 var selectIdx = CorpusItems.IndexOf(selectItem);
 
                 var setItem = new CorpusItem(selectItem.No);
@@ -132,6 +179,15 @@ namespace EasySpeechCorpusCreator.ViewModels
                 setItem.SentenceData.Sentence = this.Sentence.Value;
                 setItem.SentenceData.Kana = this.Kana.Value;
                 setItem.TagsStr = this.Tags.Value;
+                setItem.VoiceFileName = selectItem.VoiceFileName;
+
+                var newVoicePath = this.GetVoicePath(setItem);
+                if (File.Exists(oldVoicePath))
+                {
+                    AudioUtil.StopAudio();
+                    File.Move(oldVoicePath, newVoicePath);
+                    this.VoiceImagePath.Value = newVoicePath;
+                }
 
                 CorpusItems[selectIdx] = setItem;
                 this.SelectItem.Value = setItem;
@@ -142,6 +198,11 @@ namespace EasySpeechCorpusCreator.ViewModels
 
         private void AddCorpusItem()
         {
+            if (this.CurrentData.Project == ProjectConst.NEW_PROJECT)
+            {
+                this.EditProject();
+            }
+
             var no = 0;
             var name = this.Name.Value;
             var sentence = this.Sentence.Value;
@@ -157,6 +218,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                 name,
                 sentence,
                 kana,
+                string.Empty,
                 tags
             );
             this.CorpusItems.Add(addCorpusItem);
@@ -172,34 +234,41 @@ namespace EasySpeechCorpusCreator.ViewModels
             {
                 var index = this.CorpusItems.IndexOf(selectItem);
                 this.CorpusItems.Remove(selectItem);
+                var deleteVoicePath = this.GetVoicePath(selectItem);
 
                 if (index < this.CorpusItems.Count)
                 {
                     this.SelectItem.Value = this.CorpusItems[index];
+                    this.VoiceImagePath.Value = this.GetVoicePath(this.CorpusItems[index].VoiceFileName);
                 }
                 else
                 {
                     this.SelectItem.Value = null;
+                    this.VoiceImagePath.Value = null;
                 }
-            }
 
-            this.UpdateCorpusItem(this.CurrentData.Project, this.CorpusItems);
+                if (File.Exists(deleteVoicePath))
+                {
+                    AudioUtil.StopAudio();
+                    File.Delete(deleteVoicePath);
+                }
+
+                this.UpdateCorpusItem(this.CurrentData.Project, this.CorpusItems);
+            }
         }
 
         public void PlayAudio()
         {
-            var selectItem = this.SelectItem.Value;
-            if (selectItem != null)
+            if (!(FocusManager.GetFocusedElement(this.MainWindow) is TextBox))
             {
-                var voicePath = System.IO.Path.Combine(
-                        this.Settings.ProjectPass,
-                        this.CurrentData.Project,
-                        RecordingConst.VOICE_DIRECTORY,
-                        selectItem.No + "_" + selectItem.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
-                    );
-                if (File.Exists(voicePath))
+                var selectItem = this.SelectItem.Value;
+                if (selectItem != null)
                 {
-                    AudioUtil.PlayAudio(System.IO.Path.Combine(voicePath));
+                    var voicePath = this.GetVoicePath(selectItem.VoiceFileName);
+                    if (File.Exists(voicePath))
+                    {
+                        AudioUtil.PlayAudio(System.IO.Path.Combine(voicePath));
+                    }
                 }
             }
         }
@@ -218,12 +287,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                 var selectItem = this.SelectItem.Value;
                 if (selectItem != null)
                 {
-                    var voicePath = System.IO.Path.Combine(
-                        this.Settings.ProjectPass,
-                        this.CurrentData.Project,
-                        RecordingConst.VOICE_DIRECTORY,
-                        selectItem.No + "_" + selectItem.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
-                        );
+                    var voicePath = this.GetVoicePath(selectItem);
                     AudioUtil.StartRecording(voicePath, 0, 44100);
                 }
             }
@@ -235,19 +299,24 @@ namespace EasySpeechCorpusCreator.ViewModels
 
             AudioUtil.StopRecording();
 
-            this.VoiceImagePath.Value = System.IO.Path.Combine(
-                this.Settings.ProjectPass,
-                this.CurrentData.Project,
-                RecordingConst.VOICE_DIRECTORY,
-                this.SelectItem.Value?.No + "_" + this.SelectItem.Value?.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
-                );
+            var voiceFileName = this.GetVoiceFileName(this.SelectItem.Value);
+            var voicePath = this.GetVoicePath(voiceFileName);
+            this.VoiceImagePath.Value = voicePath;
+            if (this.SelectItem.Value != null)
+            {
+                this.SelectItem.Value.VoiceFileName = voiceFileName;
+            }
+
+            this.UpdateCorpusItem(this.CurrentData.Project, this.CorpusItems);
         }
 
-        private void SetProject(string project)
+        private void SetProject(string? project)
         {
+            this.EditProjectName.Value = project ?? string.Empty;
+
             this.CorpusItems.Clear();
 
-            var currentProjectDirectoryParh = System.IO.Path.Combine(this.Settings.ProjectPass, project);
+            var currentProjectDirectoryParh = System.IO.Path.Combine(this.Settings.ProjectPass, project ?? string.Empty);
             var currentProjectFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_JSON);
             if (File.Exists(currentProjectFileParh))
             {
@@ -260,7 +329,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                 }
             }
 
-            this.CurrentData.Project = project;
+            this.CurrentData.Project = project ?? string.Empty;
 
             this.SelectItem.Value = this.CorpusItems.FirstOrDefault();
         }
@@ -275,15 +344,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                 this.Kana.Value = corpus.SentenceData.Kana;
                 this.Tags.Value = corpus.TagsStr;
                 this.RubyText.Value = corpus.SentenceData.Sentence;
-
-                var voicePath = System.IO.Path.Combine(
-                    this.Settings.ProjectPass,
-                    this.CurrentData.Project,
-                    RecordingConst.VOICE_DIRECTORY,
-                    corpus.No + "_" + corpus.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION
-                    );
-
-                this.VoiceImagePath.Value = voicePath;
+                this.VoiceImagePath.Value = this.GetVoicePath(corpus.VoiceFileName);
             }
             else
             {
@@ -303,6 +364,10 @@ namespace EasySpeechCorpusCreator.ViewModels
             {
                 this.VoiceImage.Value = AudioUtil.ExWaveImage(path);
             }
+            else
+            {
+                this.VoiceImage.Value = null;
+            }
         }
 
 
@@ -312,6 +377,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             var currentProjectFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_JSON);
             var enc = Encoding.GetEncoding(CorpusConst.CORPUS_FORMAT);
 
+            AudioUtil.StopAudio();
             File.Delete(currentProjectFileParh);
 
             using (var writer = new StreamWriter(currentProjectFileParh, true, enc))
@@ -331,6 +397,24 @@ namespace EasySpeechCorpusCreator.ViewModels
 
                 writer.Write(']');
             }
+        }
+
+        private string GetVoicePath(CorpusItem? corpusItem)
+        {
+            return this.GetVoicePath(this.GetVoiceFileName(corpusItem));
+        }
+        private string GetVoicePath(string voiceFileName)
+        {
+            return System.IO.Path.Combine(
+                        this.Settings.ProjectPass,
+                        this.CurrentData.Project,
+                        RecordingConst.VOICE_DIRECTORY,
+                        voiceFileName
+                    );
+        }
+        private string GetVoiceFileName(CorpusItem? corpusItem)
+        {
+            return corpusItem?.No + "_" + corpusItem?.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION;
         }
     }
 }
