@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using EasySpeechCorpusCreator.Business;
 using EasySpeechCorpusCreator.Consts;
 using EasySpeechCorpusCreator.Models;
@@ -21,6 +22,13 @@ namespace EasySpeechCorpusCreator
     /// </summary>
     public partial class App : PrismApplication
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            this.DispatcherUnhandledException += this.CatchException;
+        }
+
         protected override Window CreateShell()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -80,6 +88,17 @@ namespace EasySpeechCorpusCreator
             base.ConfigureViewModelLocator();
 
             ViewModelLocationProvider.Register<MainWindow, MainWindowViewModel>();
+        }
+        private void CatchException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            var exMessage = e.Exception.ToString();
+
+            // 保存完了 ダイアログ
+            MessageBox.Show(
+                DialogConst.EXCEPTION_MESSAGE + exMessage,
+                DialogConst.EXCEPTION_CAPTION,
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
         }
     }
 }

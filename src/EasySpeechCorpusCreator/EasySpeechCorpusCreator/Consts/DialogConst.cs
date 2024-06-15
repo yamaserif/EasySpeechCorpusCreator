@@ -2,6 +2,9 @@
 {
     public static class DialogConst
     {
+        public const string EXCEPTION_CAPTION = "エラー発生";
+        public const string EXCEPTION_MESSAGE = "何らかのエラーが発生しました。\n\n設定値、コーパスのデータに異常な値が入力されている可能性があります。\nあるいは作者が見落としたバグの可能性もあります……すみません……\n\nご連絡いただければもしかしたら直るかもしれません………マジでどこだろ………\n\n以下、エラーメッセージ：\n";
+
         public const string CLOSE_CAPTION = "確認";
         public const string CLOSE_MESSAGE = "ソフトを終了します。";
 
