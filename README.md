@@ -7,6 +7,8 @@
 
 また、管理上のデータはプログラム等での扱いやすさを考え、jsonで記載されます。（csvでエクスポートも可能です）
 
+![image](https://github.com/yamaserif/EasySpeechCorpusCreator/assets/62947068/8cae57ba-bfbe-41dc-8873-232c27941cad)
+
 ## 本ソフトの使用について(ライセンス)
 本ソフトのライセンスは、CC0（いわゆるパブリックドメインのようなもの）に設定しています。
 
