@@ -237,7 +237,7 @@ namespace EasySpeechCorpusCreator.ViewModels
             {
                 var index = this.CorpusItems.IndexOf(selectItem);
                 this.CorpusItems.Remove(selectItem);
-                var deleteVoicePath = this.GetVoicePath(selectItem);
+                var deleteVoicePath = this.GetVoicePath(selectItem.VoiceFileName);
 
                 if (index < this.CorpusItems.Count)
                 {
@@ -312,6 +312,13 @@ namespace EasySpeechCorpusCreator.ViewModels
                 var selectItem = this.SelectItem.Value;
                 if (selectItem != null)
                 {
+                    var oldVoicePath = this.GetVoicePath(selectItem.VoiceFileName);
+                    if (File.Exists(oldVoicePath))
+                    {
+                        AudioUtil.StopAudio();
+                        File.Delete(oldVoicePath);
+                    }
+
                     var voicePath = this.GetVoicePath(selectItem);
                     var deviceId = this.Settings.DeviceId;
                     var samplingRate = this.Settings.SamplingRate;
@@ -507,7 +514,17 @@ namespace EasySpeechCorpusCreator.ViewModels
         }
         private string GetVoiceFileName(CorpusItem? corpusItem)
         {
-            return corpusItem?.No + "_" + corpusItem?.SentenceData.Name + "." + RecordingConst.VOICE_EXTENSION;
+            var noVal = "%" + nameof(CorpusItem.No) + "%";
+            var nameVal = "%" + nameof(CorpusItem.SentenceData.Name) + "%";
+            var sentenceVal = "%" + nameof(CorpusItem.SentenceData.Sentence) + "%";
+            var kanaVal = "%" + nameof(CorpusItem.SentenceData.Kana) + "%";
+
+            var setFileName = this.Settings.SaveVoiceFormat.Replace(noVal, corpusItem?.No.ToString())
+                                                           .Replace(nameVal, corpusItem?.SentenceData.Name)
+                                                           .Replace(sentenceVal, corpusItem?.SentenceData.Sentence)
+                                                           .Replace(kanaVal, corpusItem?.SentenceData.Kana);
+
+            return setFileName + "." + RecordingConst.VOICE_EXTENSION;
         }
     }
 }
