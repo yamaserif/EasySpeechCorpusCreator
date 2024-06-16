@@ -45,6 +45,11 @@
             <RowDefinition Height="20"/>
 
             <RowDefinition Height="10"/>
+
+            <RowDefinition Height="98"/>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="10"/>
             
             <RowDefinition Height="23"/>
 
@@ -67,7 +72,10 @@
         <TextBlock Grid.Column="1" Grid.Row="13" Grid.ColumnSpan="6" Text="{Binding ExplainSamplingRate.Value}"/>
         <TextBox Grid.Column="1" Grid.Row="14" Grid.ColumnSpan="6" Text="{Binding SamplingRate.Value}"/>
 
-        <Button Grid.Column="1" Grid.Row="16" Command="{Binding SaveSettingCommand}" Content="{Binding SaveSettingText.Value}"/>
-        <Button Grid.Column="3" Grid.Row="16" Command="{Binding ResetSettingCommand}" Content="{Binding ResetSettingText.Value}"/>
+        <TextBlock Grid.Column="1" Grid.Row="16" Grid.ColumnSpan="6" Text="{Binding ExplainSaveVoiceFormat.Value}"/>
+        <TextBox Grid.Column="1" Grid.Row="17" Grid.ColumnSpan="6" Text="{Binding SaveVoiceFormat.Value}"/>
+
+        <Button Grid.Column="1" Grid.Row="19" Command="{Binding SaveSettingCommand}" Content="{Binding SaveSettingText.Value}"/>
+        <Button Grid.Column="3" Grid.Row="19" Command="{Binding ResetSettingCommand}" Content="{Binding ResetSettingText.Value}"/>
     </Grid>
 </UserControl>
