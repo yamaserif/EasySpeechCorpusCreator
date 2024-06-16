@@ -17,9 +17,9 @@ dotnet publish ^
 
 rem -åˆäJèàóù------------------------------------
 rem 64bit Windows
-mkdir ..\apps\temp\EasySpeechCorpusCreator\win-x64
+mkdir ..\apps\temp\EasySpeechCorpusCreator\__program_data
 xcopy /S /E /F /G /H /R /K /Y EasySpeechCorpusCreator\EasySpeechCorpusCreator\bin\Release\publish\win-x64 ^
-      ..\apps\temp\EasySpeechCorpusCreator\win-x64
+      ..\apps\temp\EasySpeechCorpusCreator\__program_data
 xcopy /S /E /F /G /H /R /K /Y ReleaseBase ^
       ..\apps\temp\EasySpeechCorpusCreator
 powershell compress-archive -Force ^
@@ -28,9 +28,9 @@ powershell compress-archive -Force ^
 rmdir ..\apps\temp /s /q
 
 rem 86bit Windows
-mkdir ..\apps\temp\EasySpeechCorpusCreator\win-x86
+mkdir ..\apps\temp\EasySpeechCorpusCreator\__program_data
 xcopy /S /E /F /G /H /R /K /Y EasySpeechCorpusCreator\EasySpeechCorpusCreator\bin\Release\publish\win-x86 ^
-      ..\apps\temp\EasySpeechCorpusCreator\win-x86
+      ..\apps\temp\EasySpeechCorpusCreator\__program_data
 xcopy /S /E /F /G /H /R /K /Y ReleaseBase ^
       ..\apps\temp\EasySpeechCorpusCreator
 powershell compress-archive -Force ^
