@@ -39,3 +39,5 @@
 | ---- | ---- |
 | 64bit Windows | [EasySpeechCorpusCreator_win-x64.zip](https://github.com/yamaserif/EasySpeechCorpusCreator/tree/main/apps/EasySpeechCorpusCreator_win-x64.zip) |
 | 86bit Windows | [EasySpeechCorpusCreator_win-x86.zip](https://github.com/yamaserif/EasySpeechCorpusCreator/tree/main/apps/EasySpeechCorpusCreator_win-x86.zip) |
+
+リリースしたバージョンの一覧は[こちら](https://github.com/yamaserif/EasySpeechCorpusCreator/releases)
