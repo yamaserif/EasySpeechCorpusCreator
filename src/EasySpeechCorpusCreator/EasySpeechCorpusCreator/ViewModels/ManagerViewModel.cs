@@ -14,6 +14,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using EasySpeechCorpusCreator.Business;
 using EasySpeechCorpusCreator.Consts;
 using EasySpeechCorpusCreator.Models;
@@ -354,13 +355,47 @@ namespace EasySpeechCorpusCreator.ViewModels
 
             this.CorpusItems.Clear();
 
+            var format = this.Settings.Format;
             var currentProjectDirectoryParh = System.IO.Path.Combine(this.Settings.ProjectPass, project ?? string.Empty);
-            var currentProjectFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_JSON);
+            string currentProjectFileParh;
+            var currentProjectJsonFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_JSON);
+            var currentProjectCsvFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_CSV);
+            if (format == SettingsConst.Format.CSV)
+            {
+                currentProjectFileParh = currentProjectCsvFileParh;
+
+                if (!File.Exists(currentProjectFileParh))
+                {
+                    currentProjectFileParh = currentProjectJsonFileParh;
+                    format = SettingsConst.Format.JSON;
+                }
+            }
+            else
+            {
+                currentProjectFileParh = currentProjectJsonFileParh;
+
+                if (!File.Exists(currentProjectFileParh))
+                {
+                    currentProjectFileParh = currentProjectCsvFileParh;
+                    format = SettingsConst.Format.CSV;
+                }
+            }
+
             if (File.Exists(currentProjectFileParh))
             {
                 var charset = CharsetDetector.DetectFromFile(currentProjectFileParh);
                 var currentProjectStr = File.ReadAllText(currentProjectFileParh, charset.Detected.Encoding);
-                var corpusItems = JsonUtil.ToCorpusItems(currentProjectStr);
+
+                Queue<CorpusItem>? corpusItems;
+                if (format == SettingsConst.Format.CSV)
+                {
+                    corpusItems = CsvUtil.ToCorpusItems(currentProjectStr);
+                }
+                else
+                {
+                    corpusItems = JsonUtil.ToCorpusItems(currentProjectStr);
+                }
+
                 while (0 < (corpusItems?.Count ?? 0))
                 {
                     this.CorpusItems.Add(corpusItems?.Dequeue() ?? new CorpusItem(0));
@@ -412,28 +447,48 @@ namespace EasySpeechCorpusCreator.ViewModels
         private void UpdateCorpusItem(string project, ReactiveCollection<CorpusItem> corpusItems)
         {
             var currentProjectDirectoryParh = System.IO.Path.Combine(this.Settings.ProjectPass, project);
-            var currentProjectFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_JSON);
+            var currentProjectJsonFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_JSON);
+            var currentProjectCsvFileParh = System.IO.Path.Combine(currentProjectDirectoryParh, CorpusConst.CORPUS_FILE_NAME_CSV);
+            var currentProjectFileParh = currentProjectJsonFileParh;
+            if (this.Settings.Format == SettingsConst.Format.CSV)
+            {
+                currentProjectFileParh = currentProjectCsvFileParh;
+            }
             var enc = Encoding.GetEncoding(CorpusConst.CORPUS_FORMAT);
 
             AudioUtil.StopAudio();
-            File.Delete(currentProjectFileParh);
+            File.Delete(currentProjectJsonFileParh);
+            File.Delete(currentProjectCsvFileParh);
 
             using (var writer = new StreamWriter(currentProjectFileParh, true, enc))
             {
-                writer.Write('[');
-
-                foreach (var corpusItem in corpusItems)
+                if (this.Settings.Format == SettingsConst.Format.CSV)
                 {
-                    var setStr = JsonUtil.ToJson(corpusItem);
-
-                    writer.Write(setStr);
-                    if (corpusItems.LastOrDefault() != corpusItem)
+                    writer.Write(CsvUtil.ToCsvHeader(new CorpusItem()));
+                    foreach (var corpusItem in corpusItems)
                     {
-                        writer.WriteLine(',');
+                        var setStr = CsvUtil.ToCsvItem(corpusItem);
+
+                        writer.Write(setStr);
                     }
                 }
+                else
+                {
+                    writer.Write('[');
 
-                writer.Write(']');
+                    foreach (var corpusItem in corpusItems)
+                    {
+                        var setStr = JsonUtil.ToJson(corpusItem);
+
+                        writer.Write(setStr);
+                        if (corpusItems.LastOrDefault() != corpusItem)
+                        {
+                            writer.WriteLine(',');
+                        }
+                    }
+
+                    writer.Write(']');
+                }
             }
         }
 

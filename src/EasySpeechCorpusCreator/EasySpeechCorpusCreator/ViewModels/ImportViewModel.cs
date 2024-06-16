@@ -132,6 +132,10 @@ namespace EasySpeechCorpusCreator.ViewModels
             var importPath = this.ImportPass.Value;
             var projectPath = System.IO.Path.Combine(this.Settings.ProjectPass, this.ImportName.Value);
             var projectFilePath = System.IO.Path.Combine(projectPath, CorpusConst.CORPUS_FILE_NAME_JSON);
+            if (this.Settings.Format == SettingsConst.Format.CSV)
+            {
+                projectFilePath = System.IO.Path.Combine(projectPath, CorpusConst.CORPUS_FILE_NAME_CSV);
+            }
             var projectVoicePath = System.IO.Path.Combine(projectPath, RecordingConst.VOICE_DIRECTORY);
             var enc = Encoding.GetEncoding(CorpusConst.CORPUS_FORMAT);
 
@@ -154,7 +158,7 @@ namespace EasySpeechCorpusCreator.ViewModels
                     {
                         // 上書き保存する場合はファイルを一旦削除
                         File.Delete(projectFilePath);
-                        Directory.Delete(projectVoicePath);
+                        Directory.Delete(projectVoicePath, true);
                         isOverWrite = true;
                     }
                     else
@@ -172,19 +176,33 @@ namespace EasySpeechCorpusCreator.ViewModels
 
                     string? line;
 
-                    writer.Write('[');
-                    for (var i = 1; (line = reader.ReadLine()) != null; i++)
+                    if (this.Settings.Format == SettingsConst.Format.CSV)
                     {
-                        var corpusItem = CorpusImportUtil.ToCorpusItem(i, line, this.ImportVariableChar.Value, this.ImportFormat.Value);
-                        var setStr = JsonUtil.ToJson(new CorpusItem(corpusItem.No, corpusItem.SentenceData.Name, corpusItem.SentenceData.Sentence, corpusItem.SentenceData.Kana));
-
-                        writer.Write(setStr);
-                        if (-1 < reader.Peek())
+                        writer.Write(CsvUtil.ToCsvHeader(new CorpusItem()));
+                        for (var i = 1; (line = reader.ReadLine()) != null; i++)
                         {
-                            writer.WriteLine(',');
+                            var corpusItem = CorpusImportUtil.ToCorpusItem(i, line, this.ImportVariableChar.Value, this.ImportFormat.Value);
+                            var setStr = CsvUtil.ToCsvItem(corpusItem);
+
+                            writer.Write(setStr);
                         }
                     }
-                    writer.Write(']');
+                    else
+                    {
+                        writer.Write('[');
+                        for (var i = 1; (line = reader.ReadLine()) != null; i++)
+                        {
+                            var corpusItem = CorpusImportUtil.ToCorpusItem(i, line, this.ImportVariableChar.Value, this.ImportFormat.Value);
+                            var setStr = JsonUtil.ToJson(corpusItem);
+
+                            writer.Write(setStr);
+                            if (-1 < reader.Peek())
+                            {
+                                writer.WriteLine(',');
+                            }
+                        }
+                        writer.Write(']');
+                    }
 
                     if (!isOverWrite)
                     {
