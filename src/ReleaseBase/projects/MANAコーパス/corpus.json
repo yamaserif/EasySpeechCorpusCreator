@@ -1,0 +1,2280 @@
+[{
+  "No": 1,
+  "SentenceData": {
+    "Name": "AISATSU_001",
+    "Sentence": "おはようございます。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 2,
+  "SentenceData": {
+    "Name": "AISATSU_002",
+    "Sentence": "今日も絶好のゲーム日和ですね。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 3,
+  "SentenceData": {
+    "Name": "AISATSU_003",
+    "Sentence": "おはよう、諸君。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 4,
+  "SentenceData": {
+    "Name": "AISATSU_004",
+    "Sentence": "こんにちは、休憩時間に遊びにきちゃいました。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 5,
+  "SentenceData": {
+    "Name": "AISATSU_005",
+    "Sentence": "こんばんは、声聞こえてますか？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 6,
+  "SentenceData": {
+    "Name": "AISATSU_006",
+    "Sentence": "みなさん、いかがお過ごしでしょうか。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 7,
+  "SentenceData": {
+    "Name": "AISATSU_007",
+    "Sentence": "それでは、前回の続きから進めていきましょう。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 8,
+  "SentenceData": {
+    "Name": "AISATSU_008",
+    "Sentence": "この動画はフィクションです。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 9,
+  "SentenceData": {
+    "Name": "AISATSU_009",
+    "Sentence": "実在の人物や団体、事件などとは、一切関係ありません。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 10,
+  "SentenceData": {
+    "Name": "AISATSU_010",
+    "Sentence": "ゲームの一部に、暴力などの残酷な描写が含まれています。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 11,
+  "SentenceData": {
+    "Name": "AISATSU_011",
+    "Sentence": "必ず、注意事項をお読みください。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 12,
+  "SentenceData": {
+    "Name": "AISATSU_012",
+    "Sentence": "よろしくお願いします。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 13,
+  "SentenceData": {
+    "Name": "AISATSU_013",
+    "Sentence": "ご視聴ありがとうございました。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 14,
+  "SentenceData": {
+    "Name": "AISATSU_014",
+    "Sentence": "ご清聴いただき、誠にありがとうございます。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 15,
+  "SentenceData": {
+    "Name": "AISATSU_015",
+    "Sentence": "チャンネル登録、高評価、ツイッターのフォローもお願いします。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 16,
+  "SentenceData": {
+    "Name": "AISATSU_016",
+    "Sentence": "マイリスト、イイネもしてくれたら嬉しいな。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 17,
+  "SentenceData": {
+    "Name": "AISATSU_017",
+    "Sentence": "通知もオンにしてね。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 18,
+  "SentenceData": {
+    "Name": "AISATSU_018",
+    "Sentence": "ご広告いただき、感謝です。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 19,
+  "SentenceData": {
+    "Name": "AISATSU_019",
+    "Sentence": "ギフトありがとうございます。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 20,
+  "SentenceData": {
+    "Name": "AISATSU_020",
+    "Sentence": "さようなら、またお会いしましょう。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 21,
+  "SentenceData": {
+    "Name": "AISATSU_021",
+    "Sentence": "それでは、ここで終わりたいと思います。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 22,
+  "SentenceData": {
+    "Name": "AISATSU_022",
+    "Sentence": "またね、ばいばーい。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 23,
+  "SentenceData": {
+    "Name": "AISATSU_023",
+    "Sentence": "じゃあね、お元気で。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 24,
+  "SentenceData": {
+    "Name": "AISATSU_024",
+    "Sentence": "ありがとう。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 25,
+  "SentenceData": {
+    "Name": "SETSUZOKU_001",
+    "Sentence": "はい、そういうことですね。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 26,
+  "SentenceData": {
+    "Name": "SETSUZOKU_002",
+    "Sentence": "いいえ、そうではありません。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 27,
+  "SentenceData": {
+    "Name": "SETSUZOKU_003",
+    "Sentence": "はいはい、次に進もうね。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 28,
+  "SentenceData": {
+    "Name": "SETSUZOKU_004",
+    "Sentence": "そういえば、あれってどうなったんでしたっけ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 29,
+  "SentenceData": {
+    "Name": "SETSUZOKU_005",
+    "Sentence": "いえいえ、ぼくが悪いのです。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 30,
+  "SentenceData": {
+    "Name": "SETSUZOKU_006",
+    "Sentence": "いえ、ウィンドウは開いたままで大丈夫です。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 31,
+  "SentenceData": {
+    "Name": "SETSUZOKU_007",
+    "Sentence": "うん、左折すれば合流できるよ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 32,
+  "SentenceData": {
+    "Name": "SETSUZOKU_008",
+    "Sentence": "でも、チェイン攻撃が切れちゃ勝てないよ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 33,
+  "SentenceData": {
+    "Name": "SETSUZOKU_009",
+    "Sentence": "そう、だから、これの出番ってことだよね？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 34,
+  "SentenceData": {
+    "Name": "SETSUZOKU_010",
+    "Sentence": "おっと、言い忘れてました。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 35,
+  "SentenceData": {
+    "Name": "SETSUZOKU_011",
+    "Sentence": "はーい、わたしに任せて？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 36,
+  "SentenceData": {
+    "Name": "SETSUZOKU_012",
+    "Sentence": "うーん、言いたいことは分かるんだけどね？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 37,
+  "SentenceData": {
+    "Name": "SETSUZOKU_013",
+    "Sentence": "えっと、どこでつまずいちゃったのかな？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 38,
+  "SentenceData": {
+    "Name": "SETSUZOKU_014",
+    "Sentence": "よーし、キャンプファイヤーの準備を始めよう。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 39,
+  "SentenceData": {
+    "Name": "SETSUZOKU_015",
+    "Sentence": "あー、そこ、間違ってるわ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 40,
+  "SentenceData": {
+    "Name": "SETSUZOKU_016",
+    "Sentence": "えーん、いつまでたっても終わらないや。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 41,
+  "SentenceData": {
+    "Name": "SETSUZOKU_017",
+    "Sentence": "んーと、ちょっとそこで待っててくれる？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 42,
+  "SentenceData": {
+    "Name": "SETSUZOKU_018",
+    "Sentence": "これ、どこにあったんだっけ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 43,
+  "SentenceData": {
+    "Name": "SETSUZOKU_019",
+    "Sentence": "こっち、前に来たことあった？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 44,
+  "SentenceData": {
+    "Name": "SETSUZOKU_020",
+    "Sentence": "それ、持ってきてもらっていい？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 45,
+  "SentenceData": {
+    "Name": "SETSUZOKU_021",
+    "Sentence": "そっち、危ないって言ったもん。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 46,
+  "SentenceData": {
+    "Name": "SETSUZOKU_022",
+    "Sentence": "あれ、どうやって進んだの？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 47,
+  "SentenceData": {
+    "Name": "SETSUZOKU_023",
+    "Sentence": "あそこ、本当に難しかったでしょ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 48,
+  "SentenceData": {
+    "Name": "SETSUZOKU_024",
+    "Sentence": "ジャンプで、あっち、行けるかな？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 49,
+  "SentenceData": {
+    "Name": "SETSUZOKU_025",
+    "Sentence": "さっき言ってたのって、どれ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 50,
+  "SentenceData": {
+    "Name": "SETSUZOKU_026",
+    "Sentence": "ミャンマーって、どっち？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 51,
+  "SentenceData": {
+    "Name": "SETSUZOKU_027",
+    "Sentence": "わたし、上級者コースにチャレンジしてみるよ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 52,
+  "SentenceData": {
+    "Name": "SETSUZOKU_028",
+    "Sentence": "僕、シュレディンガーの猫が1番好きかも。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 53,
+  "SentenceData": {
+    "Name": "SETSUZOKU_029",
+    "Sentence": "でも、またここに来ることになるよね？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 54,
+  "SentenceData": {
+    "Name": "SETSUZOKU_030",
+    "Sentence": "まあ、確かに、そういう側面もあるかも。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 55,
+  "SentenceData": {
+    "Name": "SETSUZOKU_031",
+    "Sentence": "ですが、教授の意見も一理あります。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 56,
+  "SentenceData": {
+    "Name": "SETSUZOKU_032",
+    "Sentence": "ですね、ぬいぐるみは拾っておきましょう。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 57,
+  "SentenceData": {
+    "Name": "SETSUZOKU_033",
+    "Sentence": "だから、潔癖症って言ってたじゃん。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 58,
+  "SentenceData": {
+    "Name": "SETSUZOKU_034",
+    "Sentence": "そして、今に至るってわけ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 59,
+  "SentenceData": {
+    "Name": "SETSUZOKU_035",
+    "Sentence": "例えば、ミョウガを用意してみるとか。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 60,
+  "SentenceData": {
+    "Name": "SETSUZOKU_036",
+    "Sentence": "一方、ミュージカル映画を観ていた彼女たち。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 61,
+  "SentenceData": {
+    "Name": "SETSUZOKU_037",
+    "Sentence": "もしも、地球が平らだったらどうなるの？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 62,
+  "SentenceData": {
+    "Name": "SETSUZOKU_038",
+    "Sentence": "それに、納品予定日に間に合わないよ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 63,
+  "SentenceData": {
+    "Name": "SETSUZOKU_039",
+    "Sentence": "だけど、引き返したほうが早くない？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 64,
+  "SentenceData": {
+    "Name": "SETSUZOKU_040",
+    "Sentence": "なにしろ、着の身着のまま飛び出してきたもんだから。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 65,
+  "SentenceData": {
+    "Name": "SETSUZOKU_041",
+    "Sentence": "さらに、幽霊まで出てきたとあっちゃたまらない。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 66,
+  "SentenceData": {
+    "Name": "SETSUZOKU_042",
+    "Sentence": "または、投票先をひとつに絞ってしまうとか。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 67,
+  "SentenceData": {
+    "Name": "SETSUZOKU_043",
+    "Sentence": "じゃあ、話題の映画を見に行こっか。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 68,
+  "SentenceData": {
+    "Name": "SETSUZOKU_044",
+    "Sentence": "だって、なんか最近起きれないんだもん。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 69,
+  "SentenceData": {
+    "Name": "SETSUZOKU_045",
+    "Sentence": "けど、リツイートしてくれたらめっちゃ嬉しいわ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 70,
+  "SentenceData": {
+    "Name": "SETSUZOKU_046",
+    "Sentence": "んで、なにがあった？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 71,
+  "SentenceData": {
+    "Name": "SETSUZOKU_047",
+    "Sentence": "ただ、人間って不思議だなって思っただけだよ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 72,
+  "SentenceData": {
+    "Name": "SETSUZOKU_048",
+    "Sentence": "さて、そろそろ答え合わせといきましょうか。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 73,
+  "SentenceData": {
+    "Name": "SETSUZOKU_049",
+    "Sentence": "きっと、みんなにすぐ追いつくよ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 74,
+  "SentenceData": {
+    "Name": "SETSUZOKU_050",
+    "Sentence": "そっか、じゃあ安心だね。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 75,
+  "SentenceData": {
+    "Name": "SETSUZOKU_051",
+    "Sentence": "とにかく、エチュードの訓練をかさねるしかない。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 76,
+  "SentenceData": {
+    "Name": "SETSUZOKU_052",
+    "Sentence": "さて、仕上がりはどうなったかなっと。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 77,
+  "SentenceData": {
+    "Name": "SETSUZOKU_053",
+    "Sentence": "もちろん、大好きだよ。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 78,
+  "SentenceData": {
+    "Name": "SETSUZOKU_054",
+    "Sentence": "つまり、ルールで縛られているってことだね。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 79,
+  "SentenceData": {
+    "Name": "SETSUZOKU_055",
+    "Sentence": "ところで、袋のネズミなわけだけど。",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 80,
+  "SentenceData": {
+    "Name": "QUESTION_001",
+    "Sentence": "何してるの？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 81,
+  "SentenceData": {
+    "Name": "QUESTION_002",
+    "Sentence": "おいくつですか？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 82,
+  "SentenceData": {
+    "Name": "QUESTION_003",
+    "Sentence": "そういえば、今、何時ですか？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 83,
+  "SentenceData": {
+    "Name": "QUESTION_004",
+    "Sentence": "逆になんでそう思ったんです？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 84,
+  "SentenceData": {
+    "Name": "QUESTION_005",
+    "Sentence": "こら、わがまま言うなら置いてっちゃうよ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 85,
+  "SentenceData": {
+    "Name": "QUESTION_006",
+    "Sentence": "おかしをくれなきゃイタズラしちゃうぞ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 86,
+  "SentenceData": {
+    "Name": "QUESTION_007",
+    "Sentence": "高いところに行くけど、大丈夫そう？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 87,
+  "SentenceData": {
+    "Name": "QUESTION_008",
+    "Sentence": "いいかげんにして？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 88,
+  "SentenceData": {
+    "Name": "QUESTION_009",
+    "Sentence": "犬と猫、どっち派？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 89,
+  "SentenceData": {
+    "Name": "QUESTION_010",
+    "Sentence": "虚無感に襲われてます？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 90,
+  "SentenceData": {
+    "Name": "QUESTION_011",
+    "Sentence": "それは言わない約束だったよな？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 91,
+  "SentenceData": {
+    "Name": "QUESTION_012",
+    "Sentence": "いつまで駄々こねてるつもり？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 92,
+  "SentenceData": {
+    "Name": "QUESTION_013",
+    "Sentence": "力こそパワーってこと？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 93,
+  "SentenceData": {
+    "Name": "QUESTION_014",
+    "Sentence": "コソコソ練習してたんです？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 94,
+  "SentenceData": {
+    "Name": "QUESTION_015",
+    "Sentence": "なんでそんなに慌ててるの？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 95,
+  "SentenceData": {
+    "Name": "QUESTION_016",
+    "Sentence": "それ、誰が言ってた？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 96,
+  "SentenceData": {
+    "Name": "QUESTION_017",
+    "Sentence": "すいません、そこ少し巻き戻してくれます？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 97,
+  "SentenceData": {
+    "Name": "QUESTION_018",
+    "Sentence": "だから言ったでしょう？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 98,
+  "SentenceData": {
+    "Name": "QUESTION_019",
+    "Sentence": "にゃんことわんこ、どっちです？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 99,
+  "SentenceData": {
+    "Name": "QUESTION_020",
+    "Sentence": "今なにしてる？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 100,
+  "SentenceData": {
+    "Name": "QUESTION_021",
+    "Sentence": "その女、誰？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 101,
+  "SentenceData": {
+    "Name": "QUESTION_022",
+    "Sentence": "言い訳するんだ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 102,
+  "SentenceData": {
+    "Name": "QUESTION_023",
+    "Sentence": "ウィンウィンの関係をきずこうじゃないか？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 103,
+  "SentenceData": {
+    "Name": "QUESTION_024",
+    "Sentence": "もしかして、友達いないんじゃ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 104,
+  "SentenceData": {
+    "Name": "QUESTION_025",
+    "Sentence": "こんなところ、さっさと逃げよう？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 105,
+  "SentenceData": {
+    "Name": "QUESTION_026",
+    "Sentence": "餃子を焼いてるんです？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 106,
+  "SentenceData": {
+    "Name": "QUESTION_027",
+    "Sentence": "除菌ウェットティッシュは持ち歩いてる？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 107,
+  "SentenceData": {
+    "Name": "QUESTION_028",
+    "Sentence": "料理のできるスタジオを借りたいよね？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 108,
+  "SentenceData": {
+    "Name": "QUESTION_029",
+    "Sentence": "龍の伝説があるんだっけ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 109,
+  "SentenceData": {
+    "Name": "QUESTION_030",
+    "Sentence": "ここはどこ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 110,
+  "SentenceData": {
+    "Name": "QUESTION_031",
+    "Sentence": "というか、あなたは誰？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 111,
+  "SentenceData": {
+    "Name": "QUESTION_032",
+    "Sentence": "眠いならもうちょっと寝てな？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 112,
+  "SentenceData": {
+    "Name": "QUESTION_033",
+    "Sentence": "略称しか覚えてないの？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 113,
+  "SentenceData": {
+    "Name": "QUESTION_034",
+    "Sentence": "ぴょんぴょん跳ねるアイコンは、どう設定するんです？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 114,
+  "SentenceData": {
+    "Name": "QUESTION_035",
+    "Sentence": "フォーマットはエムピーフォーで大丈夫？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 115,
+  "SentenceData": {
+    "Name": "QUESTION_036",
+    "Sentence": "収録、まだ終わらなそう？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 116,
+  "SentenceData": {
+    "Name": "QUESTION_037",
+    "Sentence": "変換してもらっていいですか？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 117,
+  "SentenceData": {
+    "Name": "QUESTION_038",
+    "Sentence": "やべ、今なんか聞こえた？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 118,
+  "SentenceData": {
+    "Name": "QUESTION_039",
+    "Sentence": "可愛くなりたい？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 119,
+  "SentenceData": {
+    "Name": "QUESTION_040",
+    "Sentence": "ウィッグのサイズはどう？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 120,
+  "SentenceData": {
+    "Name": "QUESTION_041",
+    "Sentence": "ビジネスチャンスをのがすわけにいかないですよね？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 121,
+  "SentenceData": {
+    "Name": "QUESTION_042",
+    "Sentence": "チャットの流れ、早くない？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 122,
+  "SentenceData": {
+    "Name": "QUESTION_043",
+    "Sentence": "まなちゃん、ちゃんと宿題は終わった？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 123,
+  "SentenceData": {
+    "Name": "QUESTION_044",
+    "Sentence": "遅刻組は新幹線で紀州に向かえばいいのかな？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 124,
+  "SentenceData": {
+    "Name": "QUESTION2_001",
+    "Sentence": "必殺技って、いないいないばあ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 125,
+  "SentenceData": {
+    "Name": "QUESTION2_002",
+    "Sentence": "そろそろ準備はいい？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 126,
+  "SentenceData": {
+    "Name": "QUESTION2_003",
+    "Sentence": "牛は英語でカウ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 127,
+  "SentenceData": {
+    "Name": "QUESTION2_004",
+    "Sentence": "これが今日使う、魚の撒き餌？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 128,
+  "SentenceData": {
+    "Name": "QUESTION2_005",
+    "Sentence": "岩の陰にいるのがオオサンショウウオ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 129,
+  "SentenceData": {
+    "Name": "QUESTION2_006",
+    "Sentence": "つまり、察しろということだろうか？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 130,
+  "SentenceData": {
+    "Name": "QUESTION2_007",
+    "Sentence": "いつまで遊んでるの兄貴？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 131,
+  "SentenceData": {
+    "Name": "QUESTION2_008",
+    "Sentence": "そっか、今年から青色申告？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 132,
+  "SentenceData": {
+    "Name": "QUESTION2_009",
+    "Sentence": "誰にでもそういうことするわけ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 133,
+  "SentenceData": {
+    "Name": "QUESTION2_010",
+    "Sentence": "あそこにいるのがいとこ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 134,
+  "SentenceData": {
+    "Name": "QUESTION2_011",
+    "Sentence": "それってどこで聞いたウワサ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 135,
+  "SentenceData": {
+    "Name": "QUESTION2_012",
+    "Sentence": "あしたのごはんはお寿司？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 136,
+  "SentenceData": {
+    "Name": "QUESTION2_013",
+    "Sentence": "エンチャントの重ねがけはできるです？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 137,
+  "SentenceData": {
+    "Name": "QUESTION2_014",
+    "Sentence": "しばらくのあいだ、こちらでお待ちくださいませ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 138,
+  "SentenceData": {
+    "Name": "QUESTION2_015",
+    "Sentence": "もしかして、かわうそ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 139,
+  "SentenceData": {
+    "Name": "QUESTION2_016",
+    "Sentence": "そうだ、エグゼファイルは実行した？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 140,
+  "SentenceData": {
+    "Name": "QUESTION2_017",
+    "Sentence": "さっきの勝負は誰の勝ち？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 141,
+  "SentenceData": {
+    "Name": "QUESTION2_018",
+    "Sentence": "使った画材は色鉛筆？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 142,
+  "SentenceData": {
+    "Name": "QUESTION2_019",
+    "Sentence": "いま加入している保険って掛け捨て？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 143,
+  "SentenceData": {
+    "Name": "QUESTION2_020",
+    "Sentence": "インターネット契約が必要ってこと？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 144,
+  "SentenceData": {
+    "Name": "QUESTION2_021",
+    "Sentence": "俺たち友だちだよな？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 145,
+  "SentenceData": {
+    "Name": "QUESTION2_022",
+    "Sentence": "作らなきゃいけないのは、栗の甘露煮？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 146,
+  "SentenceData": {
+    "Name": "QUESTION2_023",
+    "Sentence": "この子はきみの飼い犬？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 147,
+  "SentenceData": {
+    "Name": "QUESTION2_024",
+    "Sentence": "ジャンプ撃ちは基本だよね？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 148,
+  "SentenceData": {
+    "Name": "QUESTION2_025",
+    "Sentence": "それアンタが言うの？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 149,
+  "SentenceData": {
+    "Name": "QUESTION2_026",
+    "Sentence": "さっきの声は母？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 150,
+  "SentenceData": {
+    "Name": "QUESTION2_027",
+    "Sentence": "今日はなんの日？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 151,
+  "SentenceData": {
+    "Name": "QUESTION2_028",
+    "Sentence": "あなたが最強のシェフ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 152,
+  "SentenceData": {
+    "Name": "QUESTION2_029",
+    "Sentence": "可愛い笑い方って、えへへ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 153,
+  "SentenceData": {
+    "Name": "QUESTION2_030",
+    "Sentence": "それがガラケー型スマホ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 154,
+  "SentenceData": {
+    "Name": "QUESTION2_031",
+    "Sentence": "これが君の隠し球？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 155,
+  "SentenceData": {
+    "Name": "QUESTION2_032",
+    "Sentence": "えっ、私が若おかみ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 156,
+  "SentenceData": {
+    "Name": "QUESTION2_033",
+    "Sentence": "デッキ構築系のカードゲーム？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 157,
+  "SentenceData": {
+    "Name": "QUESTION2_034",
+    "Sentence": "残ってるのはあと書初め？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 158,
+  "SentenceData": {
+    "Name": "QUESTION2_035",
+    "Sentence": "買ってきたのって石焼き芋？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 159,
+  "SentenceData": {
+    "Name": "QUESTION2_036",
+    "Sentence": "あなたのお父さんは殺し屋？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 160,
+  "SentenceData": {
+    "Name": "QUESTION2_037",
+    "Sentence": "層が重なってるのがミルフィーユ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 161,
+  "SentenceData": {
+    "Name": "QUESTION2_038",
+    "Sentence": "救急車なら通り過ぎたよ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 162,
+  "SentenceData": {
+    "Name": "QUESTION2_039",
+    "Sentence": "ミュシャをご存知かしら？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 163,
+  "SentenceData": {
+    "Name": "QUESTION2_040",
+    "Sentence": "マジックしたり、ジャグリングしたり？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 164,
+  "SentenceData": {
+    "Name": "QUESTION2_041",
+    "Sentence": "料理当番代わってくれる？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 165,
+  "SentenceData": {
+    "Name": "QUESTION2_042",
+    "Sentence": "この写真に写ってるのは誰？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 166,
+  "SentenceData": {
+    "Name": "QUESTION2_043",
+    "Sentence": "オが切れたのは堪忍袋？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 167,
+  "SentenceData": {
+    "Name": "QUESTION2_044",
+    "Sentence": "バ美肉ですわ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 168,
+  "SentenceData": {
+    "Name": "QUESTION2_045",
+    "Sentence": "するってーと、何を？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 169,
+  "SentenceData": {
+    "Name": "QUESTION2_046",
+    "Sentence": "ぬいぐるみ、とってくれません？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 170,
+  "SentenceData": {
+    "Name": "QUESTION2_047",
+    "Sentence": "軽く遊んでやっただけだが？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 171,
+  "SentenceData": {
+    "Name": "QUESTION2_048",
+    "Sentence": "えーっと、アリバイがないのは午後六時過ぎ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 172,
+  "SentenceData": {
+    "Name": "QUESTION2_049",
+    "Sentence": "もしかすると、カンニング？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 173,
+  "SentenceData": {
+    "Name": "QUESTION2_050",
+    "Sentence": "好きな揚げ物はタツタ揚げ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 174,
+  "SentenceData": {
+    "Name": "QUESTION2_051",
+    "Sentence": "わたしがきのう会ったあの子と双子？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 175,
+  "SentenceData": {
+    "Name": "QUESTION2_052",
+    "Sentence": "星座占いをしよう、あなたはなに座？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 176,
+  "SentenceData": {
+    "Name": "QUESTION2_053",
+    "Sentence": "被害者が殺されたのは何時？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 177,
+  "SentenceData": {
+    "Name": "QUESTION2_054",
+    "Sentence": "フュージョンしようず？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 178,
+  "SentenceData": {
+    "Name": "QUESTION2_055",
+    "Sentence": "残り短い命なんだぜ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 179,
+  "SentenceData": {
+    "Name": "QUESTION2_056",
+    "Sentence": "あの子はかの有名な天才幼女だぞ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 180,
+  "SentenceData": {
+    "Name": "QUESTION2_057",
+    "Sentence": "僕の声が聞こえているのだ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 181,
+  "SentenceData": {
+    "Name": "QUESTION2_058",
+    "Sentence": "わたくしのことを覚えておいで？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 182,
+  "SentenceData": {
+    "Name": "QUESTION2_059",
+    "Sentence": "彼女の妹はまだ小学生のはずだけど？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 183,
+  "SentenceData": {
+    "Name": "QUESTION2_060",
+    "Sentence": "ここまでは進めたけど、このあとどうすれば？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 184,
+  "SentenceData": {
+    "Name": "QUESTION2_061",
+    "Sentence": "楽しみにしてるアニメは何曜日？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 185,
+  "SentenceData": {
+    "Name": "QUESTION2_062",
+    "Sentence": "入るとこもう決めてるって、なに部？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 186,
+  "SentenceData": {
+    "Name": "QUESTION2_063",
+    "Sentence": "そのデータ、どこ調べ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 187,
+  "SentenceData": {
+    "Name": "QUESTION2_064",
+    "Sentence": "さっきからあの子が隠してるの、通信簿？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 188,
+  "SentenceData": {
+    "Name": "QUESTION2_065",
+    "Sentence": "旅行に行く計画だ、ヨーロッパ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 189,
+  "SentenceData": {
+    "Name": "QUESTION2_066",
+    "Sentence": "どちらのクルマがより低燃費？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 190,
+  "SentenceData": {
+    "Name": "QUESTION2_067",
+    "Sentence": "買ったのはお揃いのティーカップ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 191,
+  "SentenceData": {
+    "Name": "QUESTION2_068",
+    "Sentence": "ニャーニャーってオノマトペ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 192,
+  "SentenceData": {
+    "Name": "QUESTION2_069",
+    "Sentence": "やっぱり、鍋の具材はきりたんぽ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 193,
+  "SentenceData": {
+    "Name": "QUESTION2_070",
+    "Sentence": "お兄ちゃんたちと遊びたいなら、早く宿題しなきゃ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 194,
+  "SentenceData": {
+    "Name": "QUESTION2_071",
+    "Sentence": "今日のバイトって、カテキョ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 195,
+  "SentenceData": {
+    "Name": "QUESTION2_072",
+    "Sentence": "今通ったのって消防車？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 196,
+  "SentenceData": {
+    "Name": "QUESTION2_073",
+    "Sentence": "研究に必要なサンプルの採取？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 197,
+  "SentenceData": {
+    "Name": "QUESTION2_074",
+    "Sentence": "例の映画、スリーディーで見たんでしょ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 198,
+  "SentenceData": {
+    "Name": "QUESTION2_075",
+    "Sentence": "宇治で栽培されていないのに、宇治抹茶？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 199,
+  "SentenceData": {
+    "Name": "QUESTION2_076",
+    "Sentence": "空中都市のマチュピチュ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 200,
+  "SentenceData": {
+    "Name": "QUESTION2_077",
+    "Sentence": "あの有名な魔導書の原著？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 201,
+  "SentenceData": {
+    "Name": "QUESTION2_078",
+    "Sentence": "どうしてこんなにふにゃふにゃ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 202,
+  "SentenceData": {
+    "Name": "QUESTION2_079",
+    "Sentence": "フランスの哲学者、モンテーニュ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 203,
+  "SentenceData": {
+    "Name": "QUESTION2_080",
+    "Sentence": "誰でもって、本当に老若男女？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 204,
+  "SentenceData": {
+    "Name": "QUESTION2_081",
+    "Sentence": "これが、感動したって言ってたコミュ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 205,
+  "SentenceData": {
+    "Name": "QUESTION2_082",
+    "Sentence": "やってらんねえよなあ、そりゃ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 206,
+  "SentenceData": {
+    "Name": "QUESTION2_083",
+    "Sentence": "いまさら僕に遠慮？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 207,
+  "SentenceData": {
+    "Name": "QUESTION2_084",
+    "Sentence": "老後の夢は全国行脚？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 208,
+  "SentenceData": {
+    "Name": "QUESTION2_085",
+    "Sentence": "サンマもカツオも、回遊魚？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 209,
+  "SentenceData": {
+    "Name": "QUESTION2_086",
+    "Sentence": "さっきの暗号、こういう意味なんじゃ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 210,
+  "SentenceData": {
+    "Name": "QUESTION2_087",
+    "Sentence": "いま作ってるのが、卒業式のためのコサージュ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 211,
+  "SentenceData": {
+    "Name": "QUESTION2_088",
+    "Sentence": "ここは野菜のムジンハンバイジョ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 212,
+  "SentenceData": {
+    "Name": "QUESTION2_089",
+    "Sentence": "この景色、またデジャビュ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 213,
+  "SentenceData": {
+    "Name": "QUESTION2_090",
+    "Sentence": "この人たちが集まってくれたボランティア？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 214,
+  "SentenceData": {
+    "Name": "QUESTION2_091",
+    "Sentence": "それ、悲しくならない？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 215,
+  "SentenceData": {
+    "Name": "QUESTION2_092",
+    "Sentence": "わらわに逆らおうというのかえ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 216,
+  "SentenceData": {
+    "Name": "QUESTION2_093",
+    "Sentence": "拙者にその秘訣を教えてはいただけぬか？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 217,
+  "SentenceData": {
+    "Name": "QUESTION2_094",
+    "Sentence": "この仕事、今日まででいけそ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 218,
+  "SentenceData": {
+    "Name": "QUESTION2_095",
+    "Sentence": "これがあなたの望んだ結末？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 219,
+  "SentenceData": {
+    "Name": "QUESTION2_096",
+    "Sentence": "どちらからいらして？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 220,
+  "SentenceData": {
+    "Name": "QUESTION2_097",
+    "Sentence": "今、何問目？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 221,
+  "SentenceData": {
+    "Name": "QUESTION2_098",
+    "Sentence": "もしかして、隠し扉？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 222,
+  "SentenceData": {
+    "Name": "QUESTION2_099",
+    "Sentence": "グミが歯に挟まってるってマジ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 223,
+  "SentenceData": {
+    "Name": "QUESTION2_100",
+    "Sentence": "親方、もうすぐ時間ですぜ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 224,
+  "SentenceData": {
+    "Name": "QUESTION2_101",
+    "Sentence": "お嬢様、おたわむれが過ぎますぞ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 225,
+  "SentenceData": {
+    "Name": "QUESTION2_102",
+    "Sentence": "この中のどれが禁止ワード？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 226,
+  "SentenceData": {
+    "Name": "QUESTION2_103",
+    "Sentence": "にゃんこになっちゃうアイテムなのにゃ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 227,
+  "SentenceData": {
+    "Name": "QUESTION2_104",
+    "Sentence": "小娘がわらわになんの用じゃ？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+},
+{
+  "No": 228,
+  "SentenceData": {
+    "Name": "QUESTION2_105",
+    "Sentence": "雰囲気のいいお店だね？",
+    "Kana": ""
+  },
+  "VoiceFileName": "",
+  "Tags": []
+}]

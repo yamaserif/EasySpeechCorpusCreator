@@ -2,7 +2,8 @@
 ***GUIで比較的かんたんに音声コーパスを作成、管理できるツール***
 
 本アプリは音声コーパスの収録を、簡単に行うためのツールです。 \
-アプリ上で収録や収録した音声データの確認ができ、適宜タグの追加ができます。
+アプリ上で収録や収録した音声データの確認ができます。 \
+また、コーパスに関する情報の追加、管理ができます。
 
 また、管理上のデータはプログラム等での扱いやすさを考え、jsonで記載されます。（csvでエクスポートも可能です）
 
@@ -22,7 +23,6 @@
 - [ITAコーパス](https://github.com/mmorise/ita-corpus)
 - [MANAコーパス](https://github.com/shirowanisan/coeiroink-corpus-manager)
 - [ROHANコーパス](https://github.com/mmorise/rohan4600)
-- [青空文庫振り仮名注釈付き音声コーパス](https://github.com/ndl-lab/hurigana-speech-corpus-aozora)
 
 こちらのコーパスはすべてパブリックドメインです。 \
 本アプリと同様に自由にお使いいただけます。（ぜひ、コーパス配布元も確認してみてください）
